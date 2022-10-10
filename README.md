@@ -7,7 +7,7 @@ Adresse de l’application web sur heroku : https://purbeurre-website.herokuapp.
 # I°) Télécharger le projet sur votre répertoire local
 
 ```
-git clone https://github.com/nicoseng/P8_purbeurre.git
+git clone https://github.com/nicoseng/P10_purbeurre.git
 ```
 
 # II°) Préparez l’environnement virtuel de développement
