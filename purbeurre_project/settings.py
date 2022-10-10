@@ -76,17 +76,28 @@ WSGI_APPLICATION = 'purbeurre_project.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if os.environ.get("ENV", "development") == "production":
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'd9c2o07osucgdl',
-            'USER': 'fkaxmioupwjozl',
-            'PASSWORD': 'cfc04da737ac71b565437a05e84bc1ab7ba7ecac36ac2df079c7af787a745cfa',
-            'HOST': 'purbeurre-website.herokuapp.com',
+            'NAME': 'django_project_bdd',
+            'USER': 'nsengmany',
+            'PASSWORD': 'lunaires',
+            'HOST': 'localhost',
             'PORT': '5432',
         }
     }
+
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql',
+    #         'NAME': 'd9c2o07osucgdl',
+    #         'USER': 'fkaxmioupwjozl',
+    #         'PASSWORD': 'cfc04da737ac71b565437a05e84bc1ab7ba7ecac36ac2df079c7af787a745cfa',
+    #         'HOST': 'purbeurre-website.herokuapp.com',
+    #         'PORT': '5432',
+    #     }
+    # }
+
 else:
     DATABASES = {
         'default': {
