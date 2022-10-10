@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<body id="page-top" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<!-- Masthead-->
+<header style="background-image:url('{{product_selected_data.product_image}}');" class="masthead">
+
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 ">
+                <h1 class="text-black bg-light font-weight-bold">{{product_selected_data.product_name}}</h1>
+            </div>
+        </div>
+    </div>
+
+</header>
+<!-- About-->
+<section class="page-section bg-primary" id="about">
+    <div class="d-flex justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm text-center">
+                    <img src="https://static.openfoodfacts.org/images/attributes/nutriscore-{{product_selected_data.product_nutriscore}}.svg"
+                         width="200">
+                </div>
+                <div class="col-sm text-center">
+                    <p>Repères nutritionnels pour 100g :</p><br>
+                    {{product_selected_data.product_ingredients}}
+                </div>
+            </div>
+            <div class="col-sm text-center pt-5">
+                <a class="justify-d-flex text-center" href="{{product_selected_data.product_url}}" target="_blank">
+                    <button type="button" class="btn btn-warning btn-lg">Voir la fiche d'OpenFoodFacts</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+</body>
+

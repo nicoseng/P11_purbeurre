@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<body id="page-top" xmlns="http://www.w3.org/1999/html">
+<!-- Masthead-->
+<header class="masthead" style="background-image:url('{{product_selected_data.product_image}}')">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end text-center ">
+                <h2 class="text-black bg-light font-weight-bold">Vous avez choisi le produit suivant :
+                    {{product_selected_data.product_name}}</h2>
+                <form method="POST" action="{% url 'product_data' %}">
+                    {% csrf_token %}
+                    <div class="col-sm text-center pt-5 my-2">
+                        <input class="btn btn-warning" type="submit" id="fiche_produit" name="fiche_produit"
+                               value="Fiche produit">
+                        <input type="hidden" name="product_selected_id"
+                               value="{{product_selected_data.product_id}}"><br>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 mb-5"></p>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Fin Masthead-->
+<div class="text-center mx-5">
+<h1 class="text-center mt-5">Vous pouvez remplacer "{{product_selected_data.product_name}}" par :</h1>
+</div>
+    <div class="row mx-5">
+    {% for substitute in substitute_list %}
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mt-5 mx-5 text-center bg-light border-0" style="width: 18rem;">
+            <span class="position-absolute top-0 start-100 translate-middle p-2 rounded-circle">
+                <img src="https://static.openfoodfacts.org/images/attributes/nutriscore-{{substitute.nutriscore}}.svg"
+                     width="100">
+            </span>
+            <img src={{substitute.product_image}} alt="product_image" width="100"
+                 class="rounded mx-auto d-block mt-4">
+            <div class="card-body">
+                <div class="col text-center">
+                <a class="text-decoration-none text-black" href="{{substitute.url}}" target="_blank">{{substitute.product_name}}</a>
+                <form method="POST" action="{% url 'add_favourite' %}">
+                    {% csrf_token %}
+
+                    <input class="btn btn-primary btn-block" type="submit" name="substitute_selected_name"
+                           value="Sauvegarder">
+                    <input class="data_submit" type="hidden" name="substitute_selected_data" value="{{substitute}}">
+
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<body id="page-top" xmlns="http://www.w3.org/1999/html"><p class="test"></p>
+
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100 text-center text-white">
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+</header>
+    <div class="pb-5">
+        <div class="container">
+
+                    <!-- Cart table -->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Image</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Nom</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light align-middle text-center ">
+                                    <div class="p-2 px-3 text-uppercase">Nutriscore</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light align-middle text-center ">
+                                    <div class="py-2 text-uppercase">Remove</div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for substitute in favourite_database %}
+                            <tr>
+                                <th scope="row">
+                                    <div class="p-2">
+                                        <img src={{substitute.substitute_image}} alt="product_image" width="80"><br>
+                                    </div>
+                                </th>
+                                <th scope="row">
+                                    <div class="p-2 text-center">
+                                        {{substitute.substitute_name}}
+                                    </div>
+
+                                </th>
+                                <td class="align-middle text-center"><strong>{{substitute.substitute_nutriscore}}</strong></td>
+                                <td class="align-middle">
+                                    <form method="POST" action="{% url 'delete_product' %}">
+                                        {% csrf_token %}
+                                        <input class="text-white d-inline-block btn btn-danger align-middle text-center"
+                                               type="submit"
+                                               name="supprimer_produit"
+                                               value="Supprimer">
+                                        <input type="hidden" name="substitute_selected_id"
+                                               value="{{substitute.substitute_id}}"><br>
+                                </form>
+                                </td>
+                                {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+</body>
+

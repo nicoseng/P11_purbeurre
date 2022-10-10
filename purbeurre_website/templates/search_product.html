@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<body id="page-top" xmlns="http://www.w3.org/1999/html">
+
+<!-- Masthead-->
+
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center align-middle">
+            <h2 class="text-center text-white ">Votre recherche "{{searched_product_name}}" correspond à plusieurs produits, veuillez en sélectionner un :</h2>
+        </div>
+    </div>
+</header>
+<div class="row mx-5 pt-2 px-5">
+    {% for product in product_database %}
+    <div class="col-auto col-md-4">
+        <div class="column">
+            <div class="card my-5 mx-5 bg-light border-0" style="width:90">
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 rounded-circle">
+                        <img src="https://static.openfoodfacts.org/images/attributes/nutriscore-{{product.product_nutriscore}}.svg"
+                             width="100">
+                    </span>
+
+                <img src={{product.product_image}} alt="product_image" width="100"
+                     class="rounded mx-auto d-block mt-4">
+                <div class="card-body">
+                    <form method="POST" action="{% url 'propose_substitute' %}">
+                        {% csrf_token %}
+                        <div class="col-sm text-center pt-1 my-2">
+                            <h6>Catégorie:</h6>
+                            <h6>{{product.category_id.category_name}}</h6>
+                            <input class="btn btn-success btn-block" type="submit" id="fiche_substitute"
+                                   name="product_selected"
+                                   value="{{product.product_name}}">
+                            <input type="hidden" name="product_selected_id"
+                                   value="{{product.product_id}}"><br>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+</body>
+
