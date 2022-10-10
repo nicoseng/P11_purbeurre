@@ -86,7 +86,7 @@ if os.environ.get("ENV", "development") == "production":
             'PORT': '5432',
         }
     }
-
+    # old bdd
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.postgresql',
