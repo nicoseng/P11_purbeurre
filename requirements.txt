@@ -30,7 +30,7 @@ selenium==4.0.0a7
 sniffio==1.2.0
 sortedcontainers==2.4.0
 sqlparse==0.4.2
-tomli==2.0.1
+tomli==1.2.3
 tqdm==4.64.1
 trio==0.21.0
 trio-websocket==0.9.2
