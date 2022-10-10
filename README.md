@@ -1,6 +1,6 @@
-# Projet P8 : Créer une plateforme pour amateur de Nutella 
+# Projet P10 : Déployez votre application sur un serveur comme un pro !
 
-Code source : https://github.com/nicoseng/P8_purbeurre
+Code source : https://github.com/nicoseng/P10_purbeurre
 Programme rédigé sous Python3. Projet sous Virtual Env et Git 
 Adresse de l’application web sur heroku : https://purbeurre-website.herokuapp.com/
 
