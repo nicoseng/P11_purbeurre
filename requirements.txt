@@ -2,7 +2,7 @@ async-generator==1.10
 attrs==22.1.0
 certifi==2022.6.15.2
 charset-normalizer==2.1.1
-coverage==6.4.4
+coverage==6.2
 dj-database-url==1.0.0
 Django==4.1.1
 django-on-heroku==1.1.2
