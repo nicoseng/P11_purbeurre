@@ -1,7 +1,8 @@
 language: python
 python:
   - "3.6"
-
+services:
+  - postgresql
 before_install:
   - python -m pip install --upgrade pip
   - pip3 install --upgrade pip
