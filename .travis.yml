@@ -23,14 +23,15 @@ script:
   - source venv/bin/activate
   - pip install -r requirements.txt
     # Step 3 : Create the database
-  - sudo -u postgres psql
-  - CREATE DATABASE purbeurre_bdd;
-  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
-  - ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';
-  - ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';
-  - ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris';
-  - GRANT ALL PRIVILEGES ON DATABASE purbeurre_bdd TO purbeurre_user;
-  - \q
+#  - sudo -u postgres psql
+#  -
+#  - CREATE DATABASE purbeurre_bdd;
+#  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
+#  - ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';
+#  - ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';
+#  - ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris';
+#  - GRANT ALL PRIVILEGES ON DATABASE purbeurre_bdd TO purbeurre_user;
+#  - \q
 #  - export ENV=PRODUCTION
 #  - manage.py collectstatic
     # Step 4 : Migrate datas in the database
@@ -38,4 +39,5 @@ script:
 #  - python manage.py migrate
 #  - python manage.py insert_data
 #  - python manage.py insert_products
+  # Step 5 : Testing the application
 #  - pytest
