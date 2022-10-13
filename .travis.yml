@@ -23,7 +23,7 @@ script:
   - source venv/bin/activate
   - pip install -r requirements.txt
     # Step 3 : Create the database
-#  - sudo -u postgres psql
+  - sudo -u postgres psql
 #  -
 #  - CREATE DATABASE purbeurre_bdd;
 #  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
