@@ -4,7 +4,6 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-  - cd purbeurre
 #  - pip3 install --upgrade pip
 
 install:
