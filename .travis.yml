@@ -4,11 +4,22 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-#  - pip3 install --upgrade pip
 
 install:
   # Step 1 : Install virtual environment
   - virtualenv -p python3 venv
+
+services:
+  - postgresql
+
+addons:
+  postgresql: 13
+  apt:
+    packages:
+      - postgresql-13
+env:
+  global:
+    - PGPORT=5433
 
 script:
   # Step 1 : Activate the virtual environment
