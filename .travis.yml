@@ -25,14 +25,10 @@ script:
   # Step 4 : Open the database
   - sudo pg_ctlcluster 13 main start
   - sudo su - postgres
-#  - pytest
-#  - sudo apt install virtualenv
-#  - virtualenv -p python3 venv
-#  - source venv/bin/activate
-#  - pip install -r requirements.txt
-#    # Step 3 : Create the database
-#  - sudo -u postgres psql
-#  -
+
+  # Step 3 : Create the database
+  - sudo -u postgres psql
+
 #  - CREATE DATABASE purbeurre_bdd;
 #  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
 #  - ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';
