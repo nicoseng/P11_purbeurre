@@ -21,6 +21,9 @@ script:
 
   # Step 3 : Retrieve the project
   - git clone https://github.com/nicoseng/P10_purbeurre.git
+
+  # Step 4 : Open the database
+  - pg_ctlcluster 13 main start
 #  - pytest
 #  - sudo apt install virtualenv
 #  - virtualenv -p python3 venv
