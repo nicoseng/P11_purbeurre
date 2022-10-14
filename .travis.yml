@@ -10,15 +10,15 @@ install:
   # Step 1 : Install virtual environment
   - virtualenv -p python3 venv
   - source venv/bin/activate
-#
-#  # Step 2 : Create the database
-#  - sudo apt-get update
-#  - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
-#  - git clone https://github.com/nicoseng/P10_purbeurre.git
-#
-#
-#script:
-#  - sudo apt install virtualenv
+
+  # Step 2 : Create the database
+  - sudo apt-get update
+  - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
+  - git clone https://github.com/nicoseng/P10_purbeurre.git
+
+
+script:
+  - sudo apt install virtualenv
 #  - virtualenv -p python3 venv
 #  - source venv/bin/activate
 #  - pip install -r requirements.txt
