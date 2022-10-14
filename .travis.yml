@@ -32,6 +32,8 @@ script:
 
   # Step 3 : Retrieve the project
   - git clone https://github.com/nicoseng/P10_purbeurre.git
+before_script:
+  - psql -c 'create database test_db;' -U postgres
 
   # Step 4 : Open the database
   - sudo pg_ctlcluster 13 main start
@@ -39,7 +41,7 @@ script:
 
   # Step 3 : Create the database
   - sudo -u postgres psql
-  - sudo psql -p 5433 -U postgres -c 'create database purbeurre_bdd;'
+#  - sudo psql -p 5433 -U postgres -c 'create database purbeurre_bdd;'
   #- psql -c 'CREATE DATABASE purbeurre_bdd;' -U postgres
 #  - CREATE DATABASE purbeurre_bdd;
 #  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
