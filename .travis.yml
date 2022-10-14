@@ -39,7 +39,7 @@ script:
 
   # Step 3 : Create the database
   - sudo -u postgres psql
-  - psql -c 'create database purbeurre_bdd;
+  - sudo psql -p 5433 -U postgres -c 'create database purbeurre_bdd;
   #- psql -c 'CREATE DATABASE purbeurre_bdd;' -U postgres
 #  - CREATE DATABASE purbeurre_bdd;
 #  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
