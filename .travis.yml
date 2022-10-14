@@ -4,7 +4,7 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-  - pip3 install --upgrade pip
+#  - pip3 install --upgrade pip
 
 install:
   # Step 1 : Install virtual environment
@@ -18,7 +18,8 @@ install:
 
 
 script:
-  - sudo apt install virtualenv
+  - python manage.py runserver
+#  - sudo apt install virtualenv
 #  - virtualenv -p python3 venv
 #  - source venv/bin/activate
 #  - pip install -r requirements.txt
