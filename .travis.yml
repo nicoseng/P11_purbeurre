@@ -9,16 +9,18 @@ before_install:
 install:
   # Step 1 : Install virtual environment
   - virtualenv -p python3 venv
+
+script:
+  # Step 1 : Activate the virtual environment
   - source venv/bin/activate
   - pip install -r requirements.txt
 
-  # Step 2 : Create the database
+  # Step 2 : Install postgresql
   - sudo apt-get update
   - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
-  - git clone https://github.com/nicoseng/P10_purbeurre.git
 
-script:
-  - python
+  # Step 3 : Retrieve the project
+  - git clone https://github.com/nicoseng/P10_purbeurre.git
 #  - pytest
 #  - sudo apt install virtualenv
 #  - virtualenv -p python3 venv
