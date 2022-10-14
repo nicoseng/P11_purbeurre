@@ -39,7 +39,7 @@ script:
 
   # Step 3 : Create the database
 #  - sudo -u postgres psql
-  - postgres psql
+  - sudo su - postgres
   - CREATE DATABASE purbeurre_bdd;
   - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
   - ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';
