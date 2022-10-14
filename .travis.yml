@@ -18,7 +18,7 @@ install:
 
 
 script:
-  - python manage.py runserver
+  - print("ok")
 #  - sudo apt install virtualenv
 #  - virtualenv -p python3 venv
 #  - source venv/bin/activate
