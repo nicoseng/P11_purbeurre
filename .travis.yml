@@ -38,7 +38,7 @@ script:
   - sudo systemctl status postgresql@13-main.service
 
   # Step 3 : Create the database
-  - sudo -u postgres psql
+#  - sudo -u postgres psql
   - postgres psql
   - CREATE DATABASE purbeurre_bdd;
   - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
