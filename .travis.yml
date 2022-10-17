@@ -20,9 +20,9 @@ addons:
 env:
   global:
     - PGPORT=5433
-before_script:
-  - sudo -u postgres psql
-  - psql -c 'create database travis_ci_test;' -U postgres
+#before_script:
+#  - sudo -u postgres psql
+#  - psql -c 'create database travis_ci_test;' -U postgres
 script:
   # Step 1 : Activate the virtual environment
   - source venv/bin/activate
