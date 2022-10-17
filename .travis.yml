@@ -35,12 +35,13 @@ script:
   # Step 3 : Retrieve the project
   - git clone https://github.com/nicoseng/P10_purbeurre.git
 
-#  # Step 4 : Open the database
-#  - sudo pg_ctlcluster 13 main start
-#  - sudo systemctl status postgresql@13-main.service
+  # Step 4 : Open the database
+  - sudo pg_ctlcluster 13 main start
+  - sudo systemctl status postgresql@13-main.service
 
   # Step 3 : Create the database
-#  - sudo -u postgres psql
+  - sudo -u postgres psql
+  - psql django_project_bdd nsengmany --lunaires
 #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 #  - psql -c 'create database travis_ci_test;' -U postgres
 #  - sudo -u postgres psql
