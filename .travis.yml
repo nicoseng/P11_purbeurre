@@ -41,6 +41,7 @@ script:
 
   # Step 3 : Create the database
   - sudo -u postgres psql
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U nsengmany
   - psql -c 'create database travis_ci_test;' -U postgres
 #  - sudo -u postgres psql
 #  - psql -c 'create database test_db;'
