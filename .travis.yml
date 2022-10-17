@@ -40,9 +40,8 @@ script:
   - sudo systemctl status postgresql@13-main.service
 
   # Step 3 : Create the database
+  - cd ~postgres/
   - sudo -u postgres psql
-  - psql -c 'CREATE USER nsengmany WITH PASSWORD 'lunaires';'
-  - psql -c 'create database test_db;' -U nsengmany
 #  - psql django_project_bdd nsengmany --lunaires
 #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 #  - psql -c 'create database travis_ci_test;' -U postgres
