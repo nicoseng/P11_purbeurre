@@ -52,6 +52,7 @@ script:
   - ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';
   - ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris';
   - GRANT ALL PRIVILEGES ON DATABASE purbeurre_bdd TO purbeurre_user;
+  - \l;
   - \q
 #  - export ENV=PRODUCTION
 #  - manage.py collectstatic
