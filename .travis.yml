@@ -32,7 +32,7 @@ script:
   # Step 2 : Install postgresql
   - sudo apt-get update
   - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
-  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+#  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
 
   # Step 3 : Retrieve the project
   - git clone https://github.com/nicoseng/P10_purbeurre.git
