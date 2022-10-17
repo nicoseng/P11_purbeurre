@@ -45,10 +45,11 @@ script:
   - cd ~postgres/
   - sudo -u postgres psql -c 'create database purbeurre_bdd;'
   - sudo -u postgres psql -c '\l'
-  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';'
-  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';'
-  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris;'
+#  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';'
+#  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';'
+#  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris;'
   - sudo -u postgres psql -c '\q'
+  - cd ../
 
     #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 #  - sudo -u postgres psql
