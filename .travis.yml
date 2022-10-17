@@ -42,13 +42,11 @@ script:
   # Step 3 : Create the database
   - cd ~postgres/
   - sudo -u postgres psql
-  - psql -c "CREATE ROLE root SUPERUSER LOGIN CREATEDB";
 #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
-  - psql -c 'create database travis_ci_test;' -U postgres
 #  - sudo -u postgres psql
 #  - psql -c 'create database test_db;'
 #  - psql -c 'create database test_db;' -U postgres
-#  - CREATE DATABASE purbeurre_bdd;
+  - CREATE DATABASE purbeurre_bdd;
 #  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
 #  - ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';
 #  - ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';
