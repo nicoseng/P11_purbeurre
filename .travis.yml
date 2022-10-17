@@ -49,8 +49,6 @@ script:
 #  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';'
 #  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris;'
   - sudo -u postgres psql -c '\q'
-  - cd P10_purbeurre
-  - ls
 
     #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 #  - sudo -u postgres psql
@@ -67,7 +65,7 @@ script:
 #  - export ENV=PRODUCTION
 #  - manage.py collectstatic
   # Step 4 : Migrate datas in the database
-#  - python manage.py makemigrations
+  - python manage.py makemigrations
 #  - python manage.py migrate
 #  - python manage.py insert_data
 #  - python manage.py insert_products
