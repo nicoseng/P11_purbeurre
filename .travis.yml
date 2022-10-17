@@ -4,6 +4,9 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo service postgresql restart
+  - sleep 1
 
 install:
   # Step 1 : Install virtual environment
@@ -20,9 +23,9 @@ addons:
 env:
   global:
     - PGPORT=5433
-#before_script:
-#  - sudo -u postgres psql
-#  - psql -c 'create database travis_ci_test;' -U postgres
+
+
+
 script:
   # Step 1 : Activate the virtual environment
   - source venv/bin/activate
