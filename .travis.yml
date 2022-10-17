@@ -4,9 +4,7 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-  - sudo service postgresql restart
-  - sleep 1
+
 
 install:
   # Step 1 : Install virtual environment
@@ -34,6 +32,7 @@ script:
   # Step 2 : Install postgresql
   - sudo apt-get update
   - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
 
   # Step 3 : Retrieve the project
   - git clone https://github.com/nicoseng/P10_purbeurre.git
@@ -47,7 +46,6 @@ script:
   - sudo psql -c 'create database purbeurre_bdd;' -U postgres
   - sudo psql -c '\l' -U postgres
 
-  - sudo -u postgres psql
 #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
 #  - sudo -u postgres psql
 #  - psql -c 'create database test_db;'
