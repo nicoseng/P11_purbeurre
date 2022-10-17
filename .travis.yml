@@ -41,8 +41,8 @@ script:
 
   # Step 5 : Create the database
   - cd ~postgres/
-  - psql -c 'create database purbeurre_bdd;' -U postgres
-  - psql -c '\l' -U postgres
+  - sudo psql -c 'create database purbeurre_bdd;' -U postgres
+  - sudo psql -c '\l' -U postgres
 
   #  - sudo -u postgres psql
 #  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
