@@ -64,7 +64,7 @@ script:
 #  - export ENV=PRODUCTION
 #  - manage.py collectstatic
   # Step 4 : Migrate datas in the database
-  - python manage.py runserver
+  - sudo -u python manage.py runserver
 #  - python manage.py migrate
 #  - python manage.py insert_data
 #  - python manage.py insert_products
