@@ -46,7 +46,7 @@ script:
   - pwd
   - cd ~
   - ls -a
-  - cd virtualenv
+  - cd build
   - ls
 
   # Step 8 : Migrate datas in the database
