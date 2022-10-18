@@ -49,7 +49,7 @@ script:
   - cd build/nicoseng/P10_purbeurre
   - ls
   - source venv/bin/activate
-  - sudo -u postgres -c 'python manage.py runserver'
+  - python
 
 #  # Step 8 : Migrate datas in the database
 #  - python manage.py makemigrations
