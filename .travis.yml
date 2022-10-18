@@ -35,9 +35,9 @@ script:
   # Step 5 : Retrieve the project
   - git clone https://github.com/nicoseng/P10_purbeurre.git
 
-  # Step 6 : Open the database
-  - sudo pg_ctlcluster 13 main start
-  - sudo systemctl status postgresql@13-main.service
+#  # Step 6 : Open postgresql
+#  - sudo pg_ctlcluster 13 main start
+#  - sudo systemctl status postgresql@13-main.service
 
   # Step 7 : Create the database
   - cd ~postgres/
