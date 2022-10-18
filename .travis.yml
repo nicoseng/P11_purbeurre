@@ -48,6 +48,7 @@ script:
   - ls
   - cd build/nicoseng/P10_purbeurre
   - ls
+  - source venv/bin/activate
 
 #  # Step 8 : Migrate datas in the database
 #  - python manage.py makemigrations
