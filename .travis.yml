@@ -5,7 +5,6 @@ python:
 before_install:
   - python -m pip install --upgrade pip
 
-
 install:
   # Step 1 : Install virtual environment
   - virtualenv -p python3 venv
@@ -21,8 +20,6 @@ addons:
 env:
   global:
     - PGPORT=5433
-
-
 
 script:
   # Step 2 : Activate the virtual environment
@@ -46,15 +43,14 @@ script:
   - cd ~postgres/
   - sudo -u postgres psql -c 'create database django_project_bdd;'
   - sudo -u postgres psql -c '\l'
+
+
+
+
+
 #  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';'
 #  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';'
 #  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris;'
-  - sudo -u postgres psql -c '\q'
-  - virtualenv -p python3 venv
-  - source venv/bin/activate
-  - pip install -r requirements.txt
-  - python manage.py runserver
-
 #  - sudo -u postgres psql
 #  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
 #  - GRANT ALL PRIVILEGES ON DATABASE purbeurre_bdd TO purbeurre_user;
