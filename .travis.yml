@@ -44,6 +44,8 @@ script:
   - sudo -u postgres psql -c 'create database django_project_bdd;'
   - sudo -u postgres psql -c '\l'
   - pwd
+  - cd ~
+  - ls -a
 
   # Step 8 : Migrate datas in the database
   - python manage.py makemigrations
