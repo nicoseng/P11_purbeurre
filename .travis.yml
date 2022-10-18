@@ -46,6 +46,8 @@ script:
   - pwd
   - cd ~
   - ls -a
+  - cd virtualenv
+  - ls
 
   # Step 8 : Migrate datas in the database
   - python manage.py makemigrations
