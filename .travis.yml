@@ -45,8 +45,9 @@ script:
   - sudo -u postgres psql -c '\l'
   - pwd
   - cd ~
-  - ls -a
+  - ls
   - cd build
+  - cd nicoseng
   - ls
 
   # Step 8 : Migrate datas in the database
