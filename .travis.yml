@@ -46,8 +46,7 @@ script:
   - pwd
   - cd ~
   - ls
-  - cd build
-  - cd nicoseng
+  - cd build/nicoseng/P10_purbeurre
   - ls
 
   # Step 8 : Migrate datas in the database
