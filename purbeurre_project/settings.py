@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ.get("ENV", "development") == "production" else True
 
-ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com", '139.59.177.55']
+ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com"]
 
 # Application definition
 
@@ -83,8 +83,8 @@ if os.environ.get("ENV", "development") == "production":
             'NAME': 'django_project_bdd',
             'USER': 'nsengmany',
             'PASSWORD': 'lunaires',
-            'HOST': '139.59.177.55',
-            'PORT': '5433',
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
     }
     # old bdd
@@ -106,7 +106,7 @@ else:
             'NAME': 'purbeurre_db',
             'USER': 'postgres',
             'PASSWORD': 'a8ln17',
-            'HOST': '139.59.177.55',
+            'HOST': '127.0.0.1',
             'PORT': '5432',
         }
     }
