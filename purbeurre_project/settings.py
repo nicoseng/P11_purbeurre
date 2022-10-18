@@ -106,7 +106,7 @@ else:
             'NAME': 'purbeurre_db',
             'USER': 'postgres',
             'PASSWORD': 'a8ln17',
-            'HOST': '127.0.0.1',
+            'HOST': '139.59.177.55',
             'PORT': '5432',
         }
     }
