@@ -66,9 +66,9 @@ script:
 #  - export ENV=PRODUCTION
 #  - manage.py collectstatic
   # Step 4 : Migrate datas in the database
-  - python manage.py migrate
-  - python manage.py insert_data
-  - python manage.py insert_products
+#  - python manage.py migrate
+#  - python manage.py insert_data
+#  - python manage.py insert_products
   - python manage.py runserver
 #  # Step 5 : Testing the application
 #  - pytest
