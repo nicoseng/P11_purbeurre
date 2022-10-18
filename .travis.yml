@@ -44,7 +44,7 @@ script:
   - sudo -u postgres psql -c 'create database django_project_bdd;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
   - sudo -u postgres psql -c '\l'
-  - python manage.py insert_data
+  - python manage.py makemigrations
 
 
 
