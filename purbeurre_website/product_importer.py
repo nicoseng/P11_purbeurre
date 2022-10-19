@@ -29,7 +29,7 @@ class ProductImporter:
         category_database = Category.objects.all()
         category_url_list = []
         for category in category_database:
-            category_url_json = category.category_url + "&json=1"
+            category_url_json = category.category_url
             category_url_list.append(category_url_json)
         return category_url_list
 
