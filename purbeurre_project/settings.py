@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ.get("ENV", "development") == "production" else True
 
-ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com", '139.59.177.55']
+ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com"]
 
 # Application definition
 
@@ -76,17 +76,15 @@ WSGI_APPLICATION = 'purbeurre_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# if os.environ.get("ENV", "development") == "production":
-if os.environ.get("ENV", "development") == "PRODUCTION":
-
+if os.environ.get("ENV", "development") == "production":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'django_project_bdd',
             'USER': 'nsengmany',
             'PASSWORD': 'lunaires',
-            'HOST': '139.59.177.55',
-            'PORT': '5432',
+            'HOST': 'localhost',
+            'PORT': '5433',
         }
     }
     # old bdd

@@ -40,16 +40,15 @@ script:
   - sudo systemctl status postgresql@13-main.service
 
   # Step 7 : Create the database
-  - cd ~postgres/
-  - sudo -u postgres psql -c 'create database django_project_bdd;'
-  - sudo -u postgres psql -c '\l'
+#  - cd ~postgres/
+#  - sudo -u postgres psql -c 'create database django_project_bdd;'
+#  - sudo -u postgres psql -c '\l'
   - pwd
   - cd ~
   - ls
   - cd build/nicoseng/P10_purbeurre
   - ls
-#  - source venv/bin/activate
-  - export ENV=PRODUCTION
+  - export ENV=production
   - python manage.py runserver
 
 #  # Step 8 : Migrate datas in the database
