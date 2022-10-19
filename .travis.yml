@@ -42,15 +42,15 @@ script:
   # Step 7 : Create the database
 #  - cd ~postgres/
 #  - sudo -u postgres psql -c 'create user nsengmany with superuser password 'lunaires';'
-  - sudo -u postgres psql -c 'create database django_project_bdd;'
-  - sudo -u postgres psql -c '\l'
-  - pwd
-  - cd ~
-  - ls
-  - cd build/nicoseng/P10_purbeurre
-  - ls
-  - export ENV=production
-  - python manage.py runserver
+#  - sudo -u postgres psql -c 'create database django_project_bdd;'
+#  - sudo -u postgres psql -c '\l'
+#  - pwd
+#  - cd ~
+#  - ls
+#  - cd build/nicoseng/P10_purbeurre
+#  - ls
+#  - export ENV=production
+#  - python manage.py runserver
 
 #  # Step 8 : Migrate datas in the database
 #  - python manage.py makemigrations
