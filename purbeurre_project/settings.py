@@ -84,7 +84,7 @@ if os.environ.get("ENV", "development") == "production":
             'USER': 'nsengmany',
             'PASSWORD': 'lunaires',
             'HOST': 'localhost',
-            'PORT': '5432',
+            'PORT': '5433',
         }
     }
     # old bdd
@@ -107,7 +107,7 @@ else:
             'USER': 'postgres',
             'PASSWORD': 'a8ln17',
             'HOST': '127.0.0.1',
-            'PORT': '5432',
+            'PORT': '5433',
         }
     }
 
