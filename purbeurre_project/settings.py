@@ -84,7 +84,7 @@ if os.environ.get("ENV", "development") == "production":
             'USER': 'nsengmany',
             'PASSWORD': 'lunaires',
             'HOST': 'localhost',
-            'PORT': '5433',
+            'PORT': '5432',
         }
     }
     # old bdd
@@ -105,9 +105,9 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'purbeurre_db',
             'USER': 'postgres',
-            'PASSWORD': 'lunaires',
+            'PASSWORD': 'a8ln17',
             'HOST': '127.0.0.1',
-            'PORT': '5433',
+            'PORT': '5432',
         }
     }
 
