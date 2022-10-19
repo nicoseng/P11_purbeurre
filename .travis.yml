@@ -29,8 +29,8 @@ script:
   - pip install -r requirements.txt
 
   # Step 4 : Install postgresql
-  - sudo apt-get update
-  - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
+#  - sudo apt-get update
+#  - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
 
   # Step 5 : Retrieve the project
 #  - git clone https://github.com/nicoseng/P10_purbeurre.git
