@@ -12,11 +12,6 @@ install:
 services:
   - postgresql
 
-#addons:
-#  postgresql: 13
-#  apt:
-#    packages:
-#      - postgresql-13
 env:
   global:
     - PGPORT=5432
@@ -34,48 +29,7 @@ script:
   - python manage.py insert_data
   - python manage.py insert_products
 #  - python manage.py runserver
-
-  # Step 4 : Install postgresql
-#  - sudo apt-get update
-#  - sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
-
-#  # Step 6 : Open postgresql
-#  - sudo pg_ctlcluster 13 main start
-#  - sudo systemctl status postgresql@13-main.service
-
-  # Step 7 : Create the database
-#  - cd ~postgres/
-#  - sudo -u postgres psql -c 'create user nsengmany with superuser password 'lunaires';'
-#  - sudo -u postgres psql -c 'create database django_project_bdd;'
-#  - sudo -u postgres psql -c '\l'
-#  - pwd
-#  - cd ~
-#  - ls
-#  - cd build/nicoseng/P10_purbeurre
-#  - ls
 #  - export ENV=production
-#  - python manage.py runserver
 
-#  # Step 8 : Migrate datas in the database
-#  - python manage.py makemigrations
-
-
-
-
-
-#  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET client_encoding TO 'utf8';'
-#  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET default_transaction_isolation TO 'read committed';'
-#  - sudo -u postgres psql -c 'ALTER ROLE purbeurre_user SET timezone TO 'Europe/Paris;'
-#  - sudo -u postgres psql
-#  - CREATE USER purbeurre_user WITH PASSWORD 'lunaires';
-#  - GRANT ALL PRIVILEGES ON DATABASE purbeurre_bdd TO purbeurre_user;
-
-#  - export ENV=PRODUCTION
-#  - manage.py collectstatic
-  # Step 4 : Migrate datas in the database
-#  - python manage.py migrate
-#  - python manage.py insert_data
-#  - python manage.py insert_products
-#  - python manage.py runserver
-#  # Step 5 : Testing the application
-#  - pytest
+  # Step 5 : Testing the application
+  - pytest
