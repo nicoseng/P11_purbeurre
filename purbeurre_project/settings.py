@@ -85,7 +85,7 @@ if os.environ.get("ENV", "development") == "PRODUCTION":
             'NAME': 'django_project_bdd',
             'USER': 'nsengmany',
             'PASSWORD': 'lunaires',
-            'HOST': 'localhost',
+            'HOST': '139.59.177.55',
             'PORT': '5433',
         }
     }
