@@ -86,7 +86,7 @@ if os.environ.get("ENV", "development") == "PRODUCTION":
             'USER': 'nsengmany',
             'PASSWORD': 'lunaires',
             'HOST': '139.59.177.55',
-            'PORT': '5433',
+            'PORT': '5432',
         }
     }
     # old bdd
