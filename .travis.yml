@@ -27,6 +27,8 @@ script:
 
   # Step 3 : Install libraries
   - pip install -r requirements.txt
+  - sudo -u postgres psql -c 'create database purbeurre_db;'
+  - sudo -u postgres psql -c '\l'
   - python3 manage.py makemigrations
 
   # Step 4 : Install postgresql
