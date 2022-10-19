@@ -105,7 +105,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'purbeurre_db',
             'USER': 'postgres',
-            'PASSWORD': 'a8ln17',
+            'PASSWORD': 'lunaires',
             'HOST': '127.0.0.1',
             'PORT': '5433',
         }
