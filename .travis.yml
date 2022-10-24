@@ -4,7 +4,7 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-  - pip install six
+
 
 install:
   # Step 1 : Install virtual environment
@@ -23,6 +23,7 @@ script:
 
   # Step 3 : Install libraries
   - pip install -r requirements.txt
+  - pip install six
   - export ENV='production'
   - sudo -u postgres psql -c 'create user nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
