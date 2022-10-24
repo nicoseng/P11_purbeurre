@@ -25,13 +25,11 @@ script:
   - export ENV='production'
   - sudo -u postgres psql -c 'create user nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
-#  - sudo -u postgres psql -c 'create database purbeurre_db;'
   - sudo -u postgres psql -c '\l'
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py insert_data
   - python manage.py insert_products
-#  - export ENV=production
 
   # Step 5 : Testing the application
   - pytest
