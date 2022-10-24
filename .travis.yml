@@ -38,8 +38,7 @@ script:
   - python manage.py migrate
   - python manage.py insert_data
   - python manage.py insert_products
-  - python manage.py collectstatic
-  - yes
+  - python manage.py collectstatic --noinput
 
   # Step 5 : Testing the application
   - pytest
