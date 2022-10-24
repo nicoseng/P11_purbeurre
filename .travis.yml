@@ -47,7 +47,8 @@ script:
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
 
-  - cd purbeurre_website/tests/functionnal_tests/
+  - pwd
+  - cd ../purbeurre/purbeurre_website/tests/functionnal_tests/
   - export PYTHONPATH="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functionnal_tests/)"
   - chmod +x manage.py
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
