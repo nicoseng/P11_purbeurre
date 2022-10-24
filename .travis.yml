@@ -4,7 +4,6 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-  - pip install -U pytest
 
 install:
   # Step 1 : Install virtual environment
@@ -24,7 +23,7 @@ script:
   # Step 3 : Install libraries
   - pip install -r requirements.txt
   - export ENV='production'
-  - sudo -u postgres psql -c 'create user nsengmany;'
+  - sudo -u postgres psql -c 'create superuser nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
   - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET client_encoding TO "utf8";'
   - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET default_transaction_isolation TO "read committed";'
