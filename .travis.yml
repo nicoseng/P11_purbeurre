@@ -49,7 +49,7 @@ script:
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
 
-  - pwd
+  - cd ../purbeurre
   - export PYTHONPATH="$(/home/travis/build/nicoseng/P10_purbeurre)"
   - chmod +x manage.py
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
