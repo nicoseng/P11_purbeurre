@@ -4,6 +4,7 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
+  - pip install six
 
 install:
   # Step 1 : Install virtual environment
