@@ -70,6 +70,7 @@ def propose_substitute(request):
         searched_product_name = request.POST.get('searched_product_name')
         product_imported = ProductImporter()
         products_list = product_imported.check_product_in_database(searched_product_name, product_database)
+        print("c'est ici votre liste", products_list)
         product_selected_data = product_imported.retrieve_product_data(products_list)
         if len(products_list) == 0:
             messages.info(request, "Il n'y a pas de produit correspondant à votre recherche.")

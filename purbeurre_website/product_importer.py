@@ -29,6 +29,7 @@ class ProductImporter:
         category_database = Category.objects.all()
         category_url_list = []
         for category in category_database:
+            print(category.category_url)
             category_url_json = category.category_url
             category_url_list.append(category_url_json)
         return category_url_list
@@ -108,7 +109,6 @@ class ProductImporter:
         return random_product_selected
 
     def propose_substitute(self, product_selected_data, product_list):
-
         product_selected_nutriscore = product_selected_data.product_nutriscore
         available_nutriscore_list = ["a", "b", "c", "d", "e"]
         selected_nutriscore_index = \
@@ -120,12 +120,12 @@ class ProductImporter:
             if product.product_nutriscore in best_nutriscore_list or product.product_nutriscore == "a":
                 self.substitute_data = {
                     "product_name": product.product_name,
-                    "nutriscore": product.product_nutriscore,
+                    "product_nutriscore": product.product_nutriscore,
                     "product_image": product.product_image,
                     "ingredients": product.product_ingredients,
                     "url": product.product_url
                 }
                 self.substitute_proposed_list.append(self.substitute_data)
 
-        substitute_proposed_list_sorted = sorted(self.substitute_proposed_list, key=itemgetter('nutriscore'))
+        substitute_proposed_list_sorted = sorted(self.substitute_proposed_list, key=itemgetter('product_nutriscore'))
         return substitute_proposed_list_sorted

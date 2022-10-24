@@ -24,7 +24,6 @@ class CategoryImporter:
 
         # To get the json format
         categories_url_json = request.json()
-
         return categories_url_json
 
     @staticmethod
