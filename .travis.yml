@@ -10,7 +10,8 @@ before_install:
 #  - unzip chromedriver_mac64.zip -d ~/
 #  - export CHROME_BIN=chromium-browser
 
-
+addons:
+  chrome: stable
 install:
   # Step 1 : Install virtual environment
   - virtualenv -p python3 venv
