@@ -1,8 +1,8 @@
 language: python
 python:
   - "3.9"
-addons:
 
+addons:
   # ajouter uniquement les navigateurs utilisés
   chrome: stable
 
@@ -19,14 +19,14 @@ services:
 env:
   global:
     - PGPORT=5432
-    - DJANGO_SETTINGS_MODULE="config.settings.travis"
+#    - DJANGO_SETTINGS_MODULE="config.settings.travis"
 
 before_script:
-
-  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
-  - unzip chromedriver_mac64.zip -d ~
-  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver)"
-  - export CHROME_BIN=chromium-browser
+#
+#  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
+#  - unzip chromedriver_mac64.zip -d ~
+#  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver)"
+#  - export CHROME_BIN=chromium-browser
 
 script:
   # Step 2 : Activate the virtual environment
@@ -35,7 +35,6 @@ script:
   # Step 3 : Install libraries
   - pip install -r requirements.txt
   - pip install six
-  - pip install webdriver-manager
   - export ENV='production'
   - sudo -u postgres psql -c 'create user nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
@@ -54,7 +53,6 @@ script:
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
 
-  - pwd
 #  - cd purbeurre_website/tests/functional_tests
 #  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
 #  - chmod +x manage.py
