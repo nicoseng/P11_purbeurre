@@ -29,7 +29,7 @@ script:
   - pip install -r requirements.txt
   - pip install six
   - pip install webdriver-manager
-  - export ENV='production'
+#  - export ENV='production'
   - sudo -u postgres psql -c 'create user nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
   - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET client_encoding TO "utf8";'
