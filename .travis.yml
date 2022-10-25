@@ -21,6 +21,11 @@ env:
   global:
     - PGPORT=5432
 
+addons:
+  sauce_connect:
+    username: "Your Sauce Labs username"
+    access_key: "Your Sauce Labs access key"
+
 script:
   # Step 2 : Activate the virtual environment
   - source venv/bin/activate
@@ -47,12 +52,12 @@ script:
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
 
-  - pwd
-  - cd purbeurre_website/tests/functional_tests
-  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
+#  - pwd
+#  - cd purbeurre_website/tests/functional_tests
+#  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
 #  - chmod +x manage.py
-  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
-  - unzip chromedriver_mac64.zip -d ~/
+#  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
+#  - unzip chromedriver_mac64.zip -d ~/
 #  - export CHROME_BIN=chromium-browser
 #  - self.browser = webdriver.Chrome(service=service)
 #  - self.browser.maximize_window()
