@@ -4,11 +4,6 @@ python:
 
 before_install:
   - python -m pip install --upgrade pip
-#  - export PYTHONPATH="$(pwd)"
-#  - chmod +x manage.py
-#  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
-#  - unzip chromedriver_mac64.zip -d ~/
-#  - export CHROME_BIN=chromium-browser
 
 install:
   # Step 1 : Install virtual environment
@@ -23,7 +18,8 @@ env:
 
 before_script:
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
-  - unzip chromedriver_mac64.zip -d ~/home/travis/virtualenv/python3.9/bin/
+  - unzip chromedriver_mac64.zip -d ~
+#  - unzip chromedriver_mac64.zip -d ~/home/travis/virtualenv/python3.9/bin/
   - export CHROME_BIN=chromium-browser
 
 script:
