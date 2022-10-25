@@ -18,7 +18,7 @@ env:
     - DJANGO_SETTINGS_MODULE="config.settings.travis"
 
 before_script:
-  - install-webdrivers --path webdrivers
+  - install-webdrivers --/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver
 #  - pwd
 #  - ls
 #  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
