@@ -21,10 +21,10 @@ env:
   global:
     - PGPORT=5432
 
-addons:
-  sauce_connect:
-    username: "Your Sauce Labs username"
-    access_key: "Your Sauce Labs access key"
+#addons:
+#  sauce_connect:
+#    username: "Your Sauce Labs username"
+#    access_key: "Your Sauce Labs access key"
 
 script:
   # Step 2 : Activate the virtual environment
