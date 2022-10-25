@@ -15,8 +15,10 @@ services:
 env:
   global:
     - PGPORT=5432
+    - DJANGO_SETTINGS_MODULE="config.settings.travis"
 
-#before_script:
+before_script:
+  - install-webdrivers --path webdrivers
 #  - pwd
 #  - ls
 #  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
