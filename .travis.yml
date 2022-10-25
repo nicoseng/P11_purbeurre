@@ -64,4 +64,4 @@ script:
 
 
   # Step 5 : Testing the application
-  - pytest
+#  - pytest
