@@ -19,7 +19,7 @@ env:
 before_script:
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d ~
-  - chmod +x P10_purbeurre/manage.py
+  - chmod +x manage.py
 #  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver)"
 #  - unzip chromedriver_mac64.zip -d ~/home/travis/virtualenv/python3.9/bin/
   - export CHROME_BIN=chromium-browser
