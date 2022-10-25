@@ -21,10 +21,10 @@ env:
   global:
     - PGPORT=5432
 
-#addons:
-#  sauce_connect:
-#    username: "Your Sauce Labs username"
-#    access_key: "Your Sauce Labs access key"
+before_script:
+  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
+  - unzip chromedriver_mac64.zip -d ~/home/travis/virtualenv/python3.9/bin/
+  - export CHROME_BIN=chromium-browser
 
 script:
   # Step 2 : Activate the virtual environment

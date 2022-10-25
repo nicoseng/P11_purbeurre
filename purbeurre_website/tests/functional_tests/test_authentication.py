@@ -10,13 +10,19 @@ from selenium.webdriver.chrome.service import Service
 
 class TestAuthentication(LiveServerTestCase):
     def setUp(self):
+        # SELENIUM_WEBDRIVERS = {
+        #     'default': {
+        #         'callable': webdriver.Chrome,
+        #         'args': (),
+        #         'kwargs': {},
+        #     }
+        # }
         pythonpath = '/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         service = Service(pythonpath)
         self.browser = webdriver.Chrome(service=service)
         self.browser.maximize_window()
 
     def test_authentication(self):
-
         self.browser.get('http://127.0.0.1:8000/create_account/')
         time.sleep(3)
         username = self.browser.find_element(By.NAME, "username")
