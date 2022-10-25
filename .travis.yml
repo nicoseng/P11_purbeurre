@@ -54,8 +54,7 @@ script:
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d ~/
 #  - export CHROME_BIN=chromium-browser
-  - cat test_authentication.py
-  - vi
+
 
   # Step 5 : Testing the application
-#  - pytest
+  - pytest
