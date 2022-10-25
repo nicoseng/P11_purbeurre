@@ -48,7 +48,7 @@ script:
   - python manage.py collectstatic --noinput
 
   - pwd
-  - cd purbeurre/purbeurre_website/tests/functional_tests
+  - cd purbeurre_website/tests/functional_tests
 #  - export PYTHONPATH="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
 #  - chmod +x manage.py
 #  - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
