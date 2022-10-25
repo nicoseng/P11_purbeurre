@@ -54,7 +54,7 @@ script:
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d ~/
 #  - export CHROME_BIN=chromium-browser
-  - service = Service('/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/')
+  - export service = Service('/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/')
 #  - self.browser = webdriver.Chrome(service=service)
 #  - self.browser.maximize_window()
 

@@ -10,9 +10,8 @@ from selenium.webdriver.chrome.service import Service
 
 class TestAuthentication(LiveServerTestCase):
     def setUp(self):
-        # service = Service('/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre_website'
-        #                   '/tests/functional_tests/chromedriver')
-        service = Service('/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/')
+        service = Service('/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website'
+                          '/tests/functional_tests/chromedriver')
         self.browser = webdriver.Chrome(service=service)
         self.browser.maximize_window()
 
