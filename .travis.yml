@@ -50,7 +50,7 @@ script:
 #  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
 #  - chmod +x manage.py
   - pwd
-  - chmod 755 "home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/"
+  - ls
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d ~/
   - export CHROME_BIN=chromium-browser
