@@ -55,6 +55,7 @@ script:
   - unzip chromedriver_mac64.zip -d ~
   - pwd
   - ls
+  - cd chromedriver_mac64
   - export CHROME_BIN=chromium-browser
 
   # Step 5 : Testing the application
