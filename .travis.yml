@@ -46,7 +46,7 @@ script:
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
 
-  - cd purbeurre_website/tests/functional_tests/chromedriver
+  - cd purbeurre_website/tests/functional_tests/
 #  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
 #  - sudo chmod 744 test_authentication.py
 #  - pwd
