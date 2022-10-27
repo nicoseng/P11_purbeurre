@@ -50,7 +50,7 @@ script:
   - python manage.py collectstatic --noinput
 
   - cd purbeurre_website/tests/functional_tests/
-  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
+#  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
 
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver.zip
   - unzip chromedriver.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
