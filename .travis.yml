@@ -54,4 +54,4 @@ script:
   - export CHROME_BIN=chromium-browser
 
   # Step 5 : Testing the application
-#  - pytest
+  - pytest
