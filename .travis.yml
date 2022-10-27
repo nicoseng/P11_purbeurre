@@ -47,12 +47,15 @@ script:
   - python manage.py collectstatic --noinput
 
   - cd purbeurre_website/tests/functional_tests/
-#  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
   - ls
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
+  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
+
   - export CHROME_BIN=chromium-browser
   - ls
+  - start cmd.exe
+  - python manage.py runserver
 
   # Step 5 : Testing the application
   - pytest
