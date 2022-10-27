@@ -3,4 +3,4 @@ htmlcov
 venv
 #.env
 .idea
-tests/chromedriver
+purbeurre_website/tests/chromedriver
