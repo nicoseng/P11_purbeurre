@@ -3,4 +3,4 @@ htmlcov
 venv
 #.env
 .idea
-chromedriver
+tests/chromedriver
