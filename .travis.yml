@@ -50,7 +50,7 @@ script:
   - ls
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver
-#  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
+  - export pythonpath="$(/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/)"
   - export CHROME_BIN=chromium-browser
   - ls
 
