@@ -45,9 +45,8 @@ script:
   - python manage.py insert_data
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
-  - python manage.py runserver
 
-  - cd purbeurre_website/tests/functional_tests/
+#  - cd purbeurre_website/tests/functional_tests/
   - ls
   - wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
   - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
