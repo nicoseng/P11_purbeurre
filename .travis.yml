@@ -28,9 +28,6 @@ script:
   # Step 3 : Install libraries
   - pip install -r requirements.txt
   - pip install six
-
-  - import os
-
   - export ENV='production'
   - sudo -u postgres psql -c 'create user nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
