@@ -49,16 +49,15 @@ script:
 
   - ls
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac_arm64.zip
-  - cd venv/bin/python3.9/venv
-  - ls
-#  - unzip chromedriver_mac_arm64.zip -d /home/travis/virtualenv/python3.6.2/bin/
+
+  - unzip chromedriver_mac_arm64.zip -d /home/travis/virtualenv/python3.9/bin/
 ##  - unzip chromedriver_mac_arm64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
 #  - ls
 #  - cd purbeurre_website/tests/functional_tests/
 #  - ls
 ##  - chmod 644 chromedriver
 ##  - chmod 755 chromedriver
-#  - export CHROME_BIN=chromium-browser
+  - export CHROME_BIN=chromium-browser
 #  - ls
 #
 #
