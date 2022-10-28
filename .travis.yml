@@ -53,8 +53,8 @@ script:
   - ls
   - cd purbeurre_website/tests/functional_tests/
   - ls
-  - chmod 644 chromedriver
-  - chmod 755 chromedriver
+#  - chmod 644 chromedriver
+#  - chmod 755 chromedriver
   - export CHROME_BIN=chromium-browser
   - ls
 
