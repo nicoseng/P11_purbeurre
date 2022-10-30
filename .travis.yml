@@ -45,7 +45,6 @@ script:
   - python manage.py insert_data
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
-  - sudo chmod +x manage.py
 
   - ls
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac_arm64.zip
