@@ -53,6 +53,7 @@ script:
   - pwd
   - cd purbeurre_website/tests/functional_tests/
   - ls
+  - sudo apt-get install chromium-chromedriver
 #  - chmod u=rwx,g=rx,o=r chromedriver
 #  - export CHROME_BIN=chromium-browser
 
