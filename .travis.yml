@@ -3,7 +3,6 @@ python:
   - "3.9"
 
 addons:
-  # ajouter uniquement les navigateurs utilisés
   chrome: stable
 
 before_install:
@@ -22,12 +21,14 @@ env:
 
 
 script:
-  # Step 2 : Activate the virtual environment
+  # Step 2 : Activating the virtual environment
   - source venv/bin/activate
 
-  # Step 3 : Install libraries
+  # Step 3 : Installing libraries
   - pip install -r requirements.txt
   - pip install six
+
+  # Step 4 : Installing database
   - export ENV='production'
   - sudo -u postgres psql -c 'create user nsengmany;'
   - sudo -u postgres psql -c 'create database django_project_bdd;'
@@ -40,21 +41,25 @@ script:
   - sudo -u postgres psql -c 'GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO nsengmany;'
 
   - sudo -u postgres psql -c '\l'
+
+  # Step 5 : Filling the database
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py insert_data
   - python manage.py insert_products
   - python manage.py collectstatic --noinput
 
+  # Step 6 : Getting Chromedriver
   - ls
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac_arm64.zip
   - unzip chromedriver_mac_arm64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
   - pwd
   - cd purbeurre_website/tests/functional_tests/
   - ls
-  - sudo apt-get install chromium-chromedriver
+  - file chromedriver
+
 #  - chmod u=rwx,g=rx,o=r chromedriver
 #  - export CHROME_BIN=chromium-browser
 
-  # Step 5 : Testing the application
+  # Step 7 : Testing the application
   - pytest
