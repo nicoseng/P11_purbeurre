@@ -2,7 +2,7 @@ language: python
 python:
   - "3.9"
 os :
-  - linux
+  - osx
 addons:
   chrome: stable
 
