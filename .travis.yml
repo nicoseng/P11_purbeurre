@@ -54,11 +54,7 @@ script:
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac64.zip
 #  - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
   - unzip chromedriver_mac64.zip -d ~/bin
-  - pwd
-  - cd purbeurre_website/tests/functional_tests/
-  - ls
 
-  - chmod u=rwx,g=rx,o=r chromedriver
   - export CHROME_BIN=chromium-browser
 
   # Step 7 : Testing the application
