@@ -1,8 +1,7 @@
 language: python
 python:
   - "3.9"
-os :
-  - osx
+
 addons:
   chrome: stable
 
@@ -60,8 +59,8 @@ script:
 #  - file chromedriver
 #  - uname -a
 
-#  - chmod u=rwx,g=rx,o=r chromedriver
-#  - export CHROME_BIN=chromium-browser
+  - chmod u=rwx,g=rx,o=r chromedriver
+  - export CHROME_BIN=chromium-browser
 
   # Step 7 : Testing the application
   - pytest
