@@ -57,6 +57,7 @@ script:
   - cd purbeurre_website/tests/functional_tests/
   - ls
   - file chromedriver
+  - uname -a
 
 #  - chmod u=rwx,g=rx,o=r chromedriver
 #  - export CHROME_BIN=chromium-browser
