@@ -52,8 +52,8 @@ script:
   - pwd
   - cd purbeurre_website/tests/functional_tests/
   - ls
-  - chmod u=rwx,g=rx,o=r chromedriver
-  - export CHROME_BIN=chromium-browser
+#  - chmod u=rwx,g=rx,o=r chromedriver
+#  - export CHROME_BIN=chromium-browser
 
   # Step 5 : Testing the application
   - pytest
