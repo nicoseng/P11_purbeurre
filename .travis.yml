@@ -50,12 +50,12 @@ script:
   - python manage.py collectstatic --noinput
 
   # Step 6 : Getting Chromedriver
-#  - ls
-#  - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac64.zip
-#  - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
-#  - pwd
-#  - cd purbeurre_website/tests/functional_tests/
-#  - ls
+  - ls
+  - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac64.zip
+  - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
+  - pwd
+  - cd purbeurre_website/tests/functional_tests/
+  - ls
 #  - file chromedriver
 #  - uname -a
 

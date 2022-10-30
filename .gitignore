@@ -2,4 +2,4 @@ htmlcov
 .pytest_cache
 venv
 .idea
-# purbeurre_website/tests/functional_tests/chromedriver
+purbeurre_website/tests/functional_tests/chromedriver
