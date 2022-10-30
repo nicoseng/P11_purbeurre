@@ -56,6 +56,7 @@ script:
   - pwd
   - cd purbeurre_website/tests/functional_tests/
   - ls
+  - export pythonpath = $(pwd)
 #  - file chromedriver
 #  - uname -a
 
