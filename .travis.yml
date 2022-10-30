@@ -53,8 +53,6 @@ script:
   - pwd
   - cd purbeurre_website/tests/functional_tests/
   - ls
-  - sudo mv chromedriver /usr/bin/chromedriver
-  - ls
 #  - chmod u=rwx,g=rx,o=r chromedriver
 #  - export CHROME_BIN=chromium-browser
 
