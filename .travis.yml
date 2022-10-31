@@ -53,10 +53,8 @@ script:
   - ls
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
-#  - unzip chromedriver_mac64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
-
-
   - export CHROME_BIN=chromium-browser
+  - chmod +x manage.py
 
   # Step 7 : Testing the application
   - pytest
