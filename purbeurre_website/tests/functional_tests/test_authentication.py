@@ -13,11 +13,14 @@ class TestAuthentication(LiveServerTestCase):
         pythonpath = '/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         # pythonpath = '/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         service = Service(pythonpath)
-        self.options = Options()
+        self.chromeoption = Options()
         self.options.add_argument('--headless')
-        self.options.add_argument('--disable-gpu')
-        self.browser = webdriver.Chrome(service=service, chrome_options=options)
+        # self.options.add_argument('--disable-gpu')
+        self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
+        # chromeoption = Options()
+        # chromeoption.add_argument('--headless')
+        # browser = webdriver.Chrome(options=chromeoption)
 
     def test_authentication(self):
         self.browser.get('http://127.0.0.1:8000/create_account/')
