@@ -13,7 +13,10 @@ class TestAuthentication(LiveServerTestCase):
         pythonpath = '/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         # pythonpath = '/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         service = Service(pythonpath)
-        self.browser = webdriver.Chrome(service=service)
+        self.options = Options()
+        self.options.add_argument('--headless')
+        self.options.add_argument('--disable-gpu')
+        self.browser = webdriver.Chrome(service=service, chrome_options=options)
         self.browser.maximize_window()
 
     def test_authentication(self):
