@@ -51,7 +51,7 @@ script:
 
   # Step 6 : Getting Chromedriver
   - ls
-  - chmod +x manage.py
+  - chmod +x python manage.py runserver
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
   - export CHROME_BIN=chromium-browser
