@@ -24,7 +24,8 @@ class TestAuthentication(LiveServerTestCase):
         # browser = webdriver.Chrome(options=chromeoption)
 
     def test_authentication(self):
-        self.browser.get('http://127.0.0.1:8000/create_account/')
+        self.browser.get('http://purbeurre-website.herokuapp.com/create_account/')
+        # self.browser.get('http://127.0.0.1:8000/create_account/')
         time.sleep(3)
         username = self.browser.find_element(By.NAME, "username")
         email = self.browser.find_element(By.NAME, "email")
