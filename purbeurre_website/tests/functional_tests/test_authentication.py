@@ -19,9 +19,7 @@ class TestAuthentication(LiveServerTestCase):
         self.chromeoption.add_argument('--disable-gpu')
         self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
-        # chromeoption = Options()
-        # chromeoption.add_argument('--headless')
-        # browser = webdriver.Chrome(options=chromeoption)
+
 
     def test_authentication(self):
         self.browser.get('http://purbeurre-website.herokuapp.com/create_account/')
