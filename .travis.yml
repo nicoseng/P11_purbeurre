@@ -25,7 +25,7 @@ script:
 
   # Step 3 : Installing libraries
   - pip install -r requirements.txt
-  - pip install six
+#  - pip install six
 
   # Step 4 : Installing database
   - export ENV='production'
