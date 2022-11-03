@@ -8,7 +8,7 @@ addons:
 before_install:
   - python -m pip install --upgrade pip
   - ls
-  - chmod +x manage.py
+  - chmod +x ../manage.py
 
 install:
   # Step 1 : Install virtual environment
