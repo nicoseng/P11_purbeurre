@@ -58,4 +58,4 @@ script:
 
 
   # Step 7 : Testing the application
-#  - pytest
+  - pytest
