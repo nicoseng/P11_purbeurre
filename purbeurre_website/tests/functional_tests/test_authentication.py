@@ -18,6 +18,7 @@ class TestAuthentication(LiveServerTestCase):
         service = Service(pythonpath)
         self.chromeoption = Options()
         self.chromeoption.add_argument('--headless')
+        self.chromeoption.add_argument('--no-sandbox')
         self.chromeoption.add_argument('--disable-gpu')
         self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
