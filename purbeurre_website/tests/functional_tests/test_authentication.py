@@ -15,8 +15,8 @@ class TestAuthentication(LiveServerTestCase):
         # pythonpath = '/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         service = Service(pythonpath)
         self.chromeoption = Options()
-        self.chromeoption.add_argument('--headless')
-        self.chromeoption.add_argument('--disable-gpu')
+        # self.chromeoption.add_argument('--headless')
+        # self.chromeoption.add_argument('--disable-gpu')
         self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
         # chromeoption = Options()
