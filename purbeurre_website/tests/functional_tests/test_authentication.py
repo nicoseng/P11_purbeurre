@@ -1,5 +1,5 @@
 import time
-
+import os
 from django.contrib.staticfiles.testing import LiveServerTestCase
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
@@ -11,8 +11,10 @@ from selenium.webdriver.chrome.options import Options
 
 class TestAuthentication(LiveServerTestCase):
     def setUp(self):
-        pythonpath = '/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
-        # pythonpath = '/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
+        if os.environ.get("ENV") == 'production':
+            pythonpath = '/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
+        else:
+            pythonpath = '/Users/nicolassengmany/Desktop/OCR/Python/Projets/P10_purbeurre/purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
         service = Service(pythonpath)
         self.chromeoption = Options()
         self.chromeoption.add_argument('--headless')
@@ -20,9 +22,8 @@ class TestAuthentication(LiveServerTestCase):
         self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
 
-
     def test_authentication(self):
-        self.browser.get('http://purbeurre-website.herokuapp.com/create_account/')
+        self.browser.get(self.live_server_url + '/create_account/')
         # self.browser.get('http://127.0.0.1:8000/create_account/')
         time.sleep(3)
         username = self.browser.find_element(By.NAME, "username")
