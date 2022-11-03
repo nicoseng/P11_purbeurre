@@ -26,7 +26,8 @@ class TestAuthentication(LiveServerTestCase):
     def test_authentication(self):
         self.browser.get(self.live_server_url + '/create_account/')
         # self.browser.get('http://127.0.0.1:8000/create_account/')
-        time.sleep(3)
+        if os.environ.get("ENV") == 'development':
+            time.sleep(3)
         username = self.browser.find_element(By.NAME, "username")
         email = self.browser.find_element(By.NAME, "email")
         password1 = self.browser.find_element(By.NAME, "password1")
@@ -38,10 +39,12 @@ class TestAuthentication(LiveServerTestCase):
         password1.send_keys("molaires")
         password2.send_keys("molaires")
         submit.send_keys(Keys.RETURN)
-        time.sleep(3)
+        if os.environ.get("ENV") == 'development':
+            time.sleep(3)
 
         self.browser.get('http://127.0.0.1:8000/login_user/')
-        time.sleep(5)
+        if os.environ.get("ENV") == 'development':
+            time.sleep(5)
 
         email = self.browser.find_element(By.NAME, "email")
         password = self.browser.find_element(By.NAME, "password")
@@ -49,7 +52,8 @@ class TestAuthentication(LiveServerTestCase):
         password.send_keys("molaires")
         submit = self.browser.find_element(By.NAME, "submit")
         submit.send_keys(Keys.RETURN)
-        time.sleep(3)
+        if os.environ.get("ENV") == 'development':
+            time.sleep(3)
 
     def tearDown(self):
         self.browser.close()
