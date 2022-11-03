@@ -42,7 +42,7 @@ class TestAuthentication(LiveServerTestCase):
         if os.environ.get("ENV") == 'development':
             time.sleep(3)
 
-        self.browser.get('http://127.0.0.1:8000/login_user/')
+        self.browser.get(self.live_server_url + '/login_user/')
         if os.environ.get("ENV") == 'development':
             time.sleep(5)
 
