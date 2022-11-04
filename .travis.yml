@@ -54,3 +54,4 @@ script:
 
   # Step 7 : Testing the application
   - pytest
+  - python manage.py runserver
