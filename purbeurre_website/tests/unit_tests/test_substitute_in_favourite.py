@@ -77,22 +77,3 @@ class TestDeleteSubstitute(TestCase):
         subs_in_fav = SubstituteInFavourite()
         fav_db = subs_in_fav.inject_substitute_in_favourite(substitute_selected_data, self.user.id)
         assert len(test_favourite_database) == len(fav_db)
-    #
-    # def test_inject_substitute_in_favourite_2(self):
-    #
-    #     substitute_selected_data = {
-    #         "product_name": "kitkat",
-    #         "product_image": "https://images.openfoodf…/0397/front_fr.4.200.jpg",
-    #         "nutriscore": "e"
-    #     }
-    #
-    #     Favourite.objects.create(
-    #         user_id=User.objects.get(id=self.user.id),
-    #         substitute_name="orange",
-    #         substitute_image="https://images.openfoodf…/0397/front_fr.4.200.jpg",
-    #         substitute_nutriscore="a"
-    #     )
-    #     test_favourite_database = Favourite.objects.all()
-    #     subs_in_fav = SubstituteInFavourite()
-    #     fav_db = subs_in_fav.inject_substitute_in_favourite(substitute_selected_data, self.user.id)
-    #     assert len(test_favourite_database) == len(fav_db)

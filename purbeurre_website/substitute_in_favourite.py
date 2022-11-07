@@ -20,7 +20,7 @@ class SubstituteInFavourite:
                 user_id=current_user,
                 substitute_name=substitute_selected_data["product_name"],
                 substitute_image=substitute_selected_data["product_image"],
-                substitute_nutriscore=substitute_selected_data["nutriscore"]
+                substitute_nutriscore=substitute_selected_data["product_nutriscore"]
             )
             substitute_selected_data.save()
             favourite_database = Favourite.objects.filter(user_id=user_id)

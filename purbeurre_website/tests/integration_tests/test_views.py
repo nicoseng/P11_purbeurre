@@ -159,7 +159,7 @@ class TestViews(TestCase):
             "product_id": 1,
             "product_name": "orange",
             "product_image": "https://images.openfoodf…/0397/front_fr.4.200.jpg",
-            "nutriscore": "a"
+            "product_nutriscore": "a"
         }
         sub_fav = SubstituteInFavourite()
         sub_fav.inject_substitute_in_favourite(test_substitute_in_favourite, user_created.id)
@@ -168,17 +168,3 @@ class TestViews(TestCase):
         response = self.client.get(path)
         assert response.status_code == 302
         assert len(test_favourite_database) == len(fav_db)
-
-    # def test_product_data_view(self):
-    #     credentials = {
-    #         "product_id": 1,
-    #         "product_name": "orange",
-    #         "product_image": "https://images.openfoodf…/0397/front_fr.4.200.jpg",
-    #         "product_url": "https://fr.openfoodfacts…anges-a-dessert-marque-u",
-    #         "product_ingredients": "orange",
-    #         "product_nutriscore": "a"
-    #     }
-    #     Product.objects.create(**credentials)
-    #     # send product data
-    #     response = self.client.post('/product_data/', credentials, follow=True)
-    #     assert response.status_code == 200
