@@ -40,7 +40,7 @@ Dans le terminal, entrez la commande heroku open. Cette commande permet de se co
 
 Dans votre terminal, créer un super utilisateur (superuser) permet de pouvoir gérer votre application via une fenêtre d'administration Django. Pour ce faire, taper la commande suivante :
 ```
-heroku run python manage.py cretesuperuser
+heroku run python manage.py createsuperuser
 ```
 puis suivre les instructions fournies par la suite (username, password, etc.) 
 
