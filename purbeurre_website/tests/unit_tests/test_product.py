@@ -42,7 +42,7 @@ class TestProduct(TestCase):
         product_imp = ProductImporter()
         products_list = product_imp.extract_products(products_list_url, nb_product)
         expected_value = [
-            {'categories': 'Snacks, Snacks sucrés, Confiseries, Bonbons, Guimauves', 'product_name': 'Chamallows',
+            {'categories': 'Snacks,Snacks sucrés,Confiseries,Bonbons,Guimauves', 'product_name': 'Chamallows',
              'nutriscore': 'd',
              'product_image': 'https://images.openfoodfacts.org/images/products/310/322/004/6159/front_fr.50.400.jpg',
              'url': 'https://fr.openfoodfacts.org/produit/3103220046159/chamallows-haribo',
