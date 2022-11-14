@@ -144,12 +144,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+if os.environ.get("ENV", "development") == "production":
+    STATIC_URL = 'staticfiles/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
+    STATIC_ROOT = os.path.join(BASE_DIR, '../P10_purbeurre/staticfiles')
+    MEDIA_URL = '/images/'
 
-STATIC_URL = 'static/'
+else:
+    STATIC_URL = 'static/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
+    STATIC_ROOT = os.path.join(BASE_DIR, '../purbeurre/staticfiles')
+    MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, '../purbeurre/staticfiles')
-MEDIA_URL = '/images/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
