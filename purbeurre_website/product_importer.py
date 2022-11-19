@@ -9,72 +9,54 @@ from purbeurre_website.models import Category, Product
 
 class ProductImporter:
     """
-    Import category of products from the API OpenFoodFacts(OFF) and insert it in the database.
+    Import products from the API OpenFoodFacts(OFF) and insert it in the database.
     """
 
     def __init__(self):
 
-        self.product_database = Product.objects.all()
-        self.product_data = {}
-        self.product_url_list = []
-        self.products_list = []
+        # self.product_database = Product.objects.all()
+        # self.product_data = {}
+        # self.product_url_list = []
+
         self.substitute_data = {}
         self.substitute_proposed_list = []
 
     @staticmethod
-    def load_category_url():
-        """
-        Loads category URLS from the category table.
-        """
-        category_database = Category.objects.all()
-        category_url_list = []
-        for category in category_database:
+    def extract_products(category_table, nb_product):
+
+        products_list = []
+        # We fetch the url of each category in category table
+        for category in category_table:
             print(category.category_url)
-            category_url_json = category.category_url
-            category_url_list.append(category_url_json)
-        return category_url_list
+            params = {
+                "categorie": category.category_name,
+                "json": "true",
+                "page_size": nb_product,  # number of products we want
+            }
+            request = requests.get(category.category_url, params=params)
+            products_data_json = request.json()
+            print(products_data_json)
 
-    def extract_products(self, category_url_list, nb_product):
-        for url in category_url_list:
-            request = get(url)
-            product_page_json = request.json()
-            number = 0
-            while number < nb_product:
-                self.product_data = {"categories": "",
-                                     "product_name": "",
-                                     "nutriscore": "",
-                                     "product_image": "",
-                                     "url": "",
-                                     "ingredients": ""
-                                     }
+            counter = 0
+            while counter < nb_product:
                 try:
-                    product_category = product_page_json["products"][number]["categories_old"]
-                    self.product_data["categories"] = product_category
-
-                    product_image = product_page_json["products"][number]["image_url"]
-                    self.product_data["product_image"] = product_image
-
-                    product_name = product_page_json["products"][number]["product_name_fr"]
-                    self.product_data["product_name"] = product_name
-
-                    nutriscore = product_page_json["products"][number]["nutrition_grade_fr"]
-                    self.product_data["nutriscore"] = nutriscore
-
-                    url = product_page_json["products"][number]["url"]
-                    self.product_data["url"] = url
-
-                    ingredients = product_page_json["products"][number]["ingredients_text_fr"]
-                    self.product_data["ingredients"] = ingredients
-
-                    self.products_list.append(self.product_data)
-                    number += 1
-
+                    product_data = {
+                        "categories": products_data_json["products"][counter]["categories"],
+                        "name": products_data_json["products"][counter]["product_name"],
+                        "nutriscore": products_data_json["products"][counter]["nutrition_grades"],
+                        "image": products_data_json["products"][counter]["image_front_small_url"],
+                        "ingredients": products_data_json["products"][counter]["ingredients_text"],
+                        "url": products_data_json["products"][counter]["url"]
+                    }
+                    products_list.append(product_data)
+                    counter += 1
                 except KeyError:
-                    number += 1
-        return self.products_list
+                    counter += 1
+        return products_list
 
-    def inject_product_in_database(self, products_list, category_table):
-
+    @staticmethod
+    def inject_product_in_database(products_list, category_table):
+        product_table = Product.objects.all()
         num_id = 1
         for product in products_list:
             for category in category_table:
@@ -83,15 +65,38 @@ class ProductImporter:
                     product_data = Product(
                         category_id=category_id,
                         product_id=num_id,
-                        product_name=product["product_name"],
+                        product_name=product["name"],
                         product_nutriscore=product["nutriscore"],
-                        product_image=product["product_image"],
+                        product_image=product["image"],
                         product_ingredients=product["ingredients"],
                         product_url=product["url"]
                     )
                     product_data.save()
                     num_id = num_id + 1
-        return self.product_database
+        return product_table
+
+    # @staticmethod
+    # def inject_product_in_database(products_list, category_table):
+    #     products_table = Product.objects.all()
+    #     num_id = 1
+    #     nb_of_products = len(products_list)
+    #     while num_id < nb_of_products:
+    #         for product in products_list:
+    #             for category in category_table:
+    #                 if category.category_name in product["categories"]:
+    #                     category_id = Category(category.category_id)
+    #                     product_data = Product(
+    #                         category_id=category_id,
+    #                         product_id=num_id,
+    #                         product_name=product["product_name"],
+    #                         product_nutriscore=product["nutrition_grades"],
+    #                         product_image=product["image_front_small_url"],
+    #                         product_ingredients=product["ingredients_text_debug"],
+    #                         product_url=product["url"]
+    #                     )
+    #                     product_data.save()
+    #                     num_id = num_id + 1
+    #         return products_table
 
     @staticmethod
     def check_product_in_database(searched_product_name, product_database):

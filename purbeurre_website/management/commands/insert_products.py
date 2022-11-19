@@ -6,17 +6,17 @@ from purbeurre_website.models import Product, Category
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        category_database = Category.objects.all()
-        if len(Product.objects.all()) == 0:
+        # Products insertion
+        category_table = Category.objects.all()
+        print(category_table)
+        print("Voici le nombre de produits contenus dans votre table produits :", Product.objects.count())
 
-            try:
-                product_imported = ProductImporter()
-                category_url_list = product_imported.load_category_url()
-                products_list = product_imported.extract_products(category_url_list, 20)
-                product_imported.inject_product_in_database(products_list, category_database)
+        if Product.objects.count() == 0:
 
-            except:
-                Product.objects.all()
+            product_imported = ProductImporter()
+            products_list = product_imported.extract_products(category_table, 2)
+            print('Products_list:\n', products_list)
+            product_imported.inject_product_in_database(products_list, category_table)
             self.stdout.write("Produits OFF bien importées.")
 
         else:
