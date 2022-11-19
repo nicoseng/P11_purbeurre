@@ -15,7 +15,6 @@ class TestCategory(TestCase):
     def test_extract_category(self):
         category_url_json = self.category_importer = CategoryImporter().load_category_from_OFF()
         category_list = self.category_importer = CategoryImporter().extract_category(category_url_json, 2)
-        print(category_list)
         expected_results = [
             {
                 'name': category_list[0]["name"],
