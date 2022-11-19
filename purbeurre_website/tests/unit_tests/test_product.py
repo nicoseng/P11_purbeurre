@@ -22,23 +22,20 @@ class TestProduct(TestCase):
         )
 
     def test_extract_products(self):
-        # Category.objects.create(
-        #     category_id=11,
-        #     category_name="Snacks",
-        #     category_url="https://fr.openfoodfacts.org/categorie/snacks?json=1"
-        # )
+
         test_category_table = Category.objects.all()
         products_list = self.product_imp.extract_products(test_category_table, 1)
         print(products_list)
         expected_value = [
-            {'categories': 'fr:Biscuits apéritifs fourrés au fromage',
-             'name': 'Bâtons saveur gouda',
-             'nutriscore': 'e',
-             'image': 'https://images.openfoodfacts.org/images/products/311/643/021/7257/front_fr.3.200.jpg',
-             'ingredients': "Farine de froment - lactosérum en poudre - matières grasses végétales (palme, palmiste) - arôme (fromage 4,1%) - amidon de pomme de terre - sel - jaunes d'oeuf en poudre - dextrose - colorants (norbixine de rocou, caramel) - émulsifiant (lécithines de soja) - poudres à lever (carbonates de sodium, diphosphates disodiques) - poivre. Peut contenir des noisettes et d'autres fruits à coque.",
-             'url': 'https://fr.openfoodfacts.org/produit/3116430217257/batons-saveur-gouda-delacre'
+            {'categories': 'Imbiss,Salzige Snacks,Vorspeisen,Chips und Pommes Frites,Chips,en:Paprika chips',
+             'name': 'Organic Plantain Chips Paprika',
+             'nutriscore': 'c',
+             'image': 'https://images.openfoodfacts.org/images/products/427/000/059/8210/front_fr.3.200.jpg',
+             'ingredients': '',
+             'url': 'https://fr.openfoodfacts.org/produit/4270000598210/organic-plantain-chips-paprika-el-origen'
              }
         ]
+
         assert products_list == expected_value
 
     def test_inject_product_in_database(self):
