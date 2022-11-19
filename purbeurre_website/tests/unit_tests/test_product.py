@@ -25,7 +25,6 @@ class TestProduct(TestCase):
 
         test_category_table = Category.objects.all()
         products_list = self.product_imp.extract_products(test_category_table, 1)
-        print(products_list)
         expected_value = [
             {'categories': products_list[0]["categories"],
              'name':products_list[0]["name"],

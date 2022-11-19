@@ -12,9 +12,7 @@ class Command(BaseCommand):
         if Category.objects.count() == 0:
             category_imported = CategoryImporter()
             category_url_json = category_imported.load_category_from_OFF()
-            print(category_url_json)
             category_list = category_imported.extract_category(category_url_json, 30)
-            print(category_list)
             category_imported.inject_category_in_database(category_list)
             self.stdout.write("Categories OFF bien importées.")
 
@@ -23,16 +21,12 @@ class Command(BaseCommand):
 
         # Products insertion
         category_table = Category.objects.all()
-        print(category_table)
-        print("Voici le nombre de produits contenus dans votre table produits au départ :", Product.objects.count())
 
         if Product.objects.count() == 0:
 
             product_imported = ProductImporter()
             products_list = product_imported.extract_products(category_table, 10)
-            print('Products_list:\n', products_list)
             product_imported.inject_product_in_database(products_list, category_table)
-            print("Il y a désormais {} produits dans votre table de produits ".format(Product.objects.count()))
 
             self.stdout.write("Produits OFF bien importées.")
         else:

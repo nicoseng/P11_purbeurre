@@ -15,11 +15,16 @@ class TestCategory(TestCase):
     def test_extract_category(self):
         category_url_json = self.category_importer = CategoryImporter().load_category_from_OFF()
         category_list = self.category_importer = CategoryImporter().extract_category(category_url_json, 2)
+        print(category_list)
         expected_results = [
-            {"name": "Aliments et boissons à base de végétaux",
-             "url": "https://fr.openfoodfacts.org/categorie/aliments-et-boissons-a-base-de-vegetaux"},
-            {"name": "Aliments d'origine végétale",
-             "url": "https://fr.openfoodfacts.org/categorie/aliments-d-origine-vegetale"},
+            {
+                'name': category_list[0]["name"],
+                'url': category_list[0]["url"],
+            },
+            {
+                'name': category_list[1]["name"],
+                'url': category_list[1]["url"]
+            }
         ]
         assert expected_results == category_list
 
