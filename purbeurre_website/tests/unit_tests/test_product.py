@@ -24,15 +24,15 @@ class TestProduct(TestCase):
     def test_extract_products(self):
 
         test_category_table = Category.objects.all()
-        products_list = self.product_imp.extract_products(test_category_table, 1)
-        print(products_list)
+        products_list = self.product_imp.extract_products(test_category_table, 2)
+
         expected_value = [
-            {'categories': 'Imbiss,Salzige Snacks,Vorspeisen,Chips und Pommes Frites,Chips,en:Paprika chips',
-             'name': 'Organic Plantain Chips Paprika',
-             'nutriscore': 'c',
-             'image': 'https://images.openfoodfacts.org/images/products/427/000/059/8210/front_fr.3.200.jpg',
-             'ingredients': '',
-             'url': 'https://fr.openfoodfacts.org/produit/4270000598210/organic-plantain-chips-paprika-el-origen'
+            {'categories': products_list[0]["categories"],
+             'name':products_list[0]["name"],
+             'nutriscore': products_list[0]["nutriscore"],
+             'image': products_list[0]["image"],
+             'ingredients':products_list[0]["ingredients"],
+             'url':products_list[0]["url"]
              }
         ]
 

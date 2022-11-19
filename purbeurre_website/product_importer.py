@@ -27,7 +27,6 @@ class ProductImporter:
         products_list = []
         # We fetch the url of each category in category table
         for category in category_table:
-            print(category.category_url)
             params = {
                 "categorie": category.category_name,
                 "json": "true",
