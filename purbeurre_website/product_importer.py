@@ -35,8 +35,6 @@ class ProductImporter:
             }
             request = requests.get(category.category_url, params=params)
             products_data_json = request.json()
-            print(products_data_json)
-
             counter = 0
             while counter < nb_product:
                 try:
@@ -74,29 +72,6 @@ class ProductImporter:
                     product_data.save()
                     num_id = num_id + 1
         return product_table
-
-    # @staticmethod
-    # def inject_product_in_database(products_list, category_table):
-    #     products_table = Product.objects.all()
-    #     num_id = 1
-    #     nb_of_products = len(products_list)
-    #     while num_id < nb_of_products:
-    #         for product in products_list:
-    #             for category in category_table:
-    #                 if category.category_name in product["categories"]:
-    #                     category_id = Category(category.category_id)
-    #                     product_data = Product(
-    #                         category_id=category_id,
-    #                         product_id=num_id,
-    #                         product_name=product["product_name"],
-    #                         product_nutriscore=product["nutrition_grades"],
-    #                         product_image=product["image_front_small_url"],
-    #                         product_ingredients=product["ingredients_text_debug"],
-    #                         product_url=product["url"]
-    #                     )
-    #                     product_data.save()
-    #                     num_id = num_id + 1
-    #         return products_table
 
     @staticmethod
     def check_product_in_database(searched_product_name, product_database):
