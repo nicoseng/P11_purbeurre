@@ -13,11 +13,6 @@ class ProductImporter:
     """
 
     def __init__(self):
-
-        # self.product_database = Product.objects.all()
-        # self.product_data = {}
-        # self.product_url_list = []
-
         self.substitute_data = {}
         self.substitute_proposed_list = []
 
