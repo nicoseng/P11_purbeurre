@@ -34,7 +34,6 @@ class TestProduct(TestCase):
              'url':products_list[0]["url"]
              }
         ]
-
         assert products_list == expected_value
 
     def test_inject_product_in_database(self):
