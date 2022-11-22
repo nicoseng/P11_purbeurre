@@ -14,36 +14,38 @@ install:
 
 services:
   - postgresql
-
+branches:
+  only:
+    - staging
 env:
   global:
     - PGPORT=5432
 
 script:
-  # Step 2 : Activating the virtual environment
-  - source venv/bin/activate
+#  # Step 2 : Activating the virtual environment
+#  - source venv/bin/activate
 
   # Step 3 : Installing libraries needed
   - pip install -r requirements.txt
   - pip install six
 
-  # Step 4 : Installing database
+#  # Step 4 : Installing database
   - export ENV='production'
-  - sudo -u postgres psql -c 'create user nsengmany;'
-  - sudo -u postgres psql -c 'create database ocr_p10_purbeurre_bdd;'
-  - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET client_encoding TO "utf8";'
-  - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET default_transaction_isolation TO "read committed";'
-  - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET timezone TO "Europe/Paris";'
-  - sudo -u postgres psql -c 'ALTER ROLE nsengmany WITH SUPERUSER;'
-  - sudo -u postgres psql -c 'GRANT ALL PRIVILEGES ON DATABASE ocr_p10_purbeurre_bdd TO nsengmany;'
-  - sudo -u postgres psql -c 'GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO nsengmany;'
-  - sudo -u postgres psql -c '\l'
-
-  # Step 5 : Filling the database
-  - python manage.py makemigrations
-  - python manage.py migrate
-  - python manage.py insert_data
-  - python manage.py collectstatic --noinput
+#  - sudo -u postgres psql -c 'create user nsengmany;'
+#  - sudo -u postgres psql -c 'create database ocr_p10_purbeurre_bdd;'
+#  - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET client_encoding TO "utf8";'
+#  - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET default_transaction_isolation TO "read committed";'
+#  - sudo -u postgres psql -c 'ALTER ROLE nsengmany SET timezone TO "Europe/Paris";'
+#  - sudo -u postgres psql -c 'ALTER ROLE nsengmany WITH SUPERUSER;'
+#  - sudo -u postgres psql -c 'GRANT ALL PRIVILEGES ON DATABASE ocr_p10_purbeurre_bdd TO nsengmany;'
+#  - sudo -u postgres psql -c 'GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO nsengmany;'
+#  - sudo -u postgres psql -c '\l'
+#
+#  # Step 5 : Filling the database
+#  - python manage.py makemigrations
+#  - python manage.py migrate
+#  - python manage.py insert_data
+#  - python manage.py collectstatic --noinput
 
   # Step 6 : Getting Chromedriver
 

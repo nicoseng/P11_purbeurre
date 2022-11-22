@@ -25,7 +25,7 @@ class Command(BaseCommand):
         if Product.objects.count() == 0:
 
             product_imported = ProductImporter()
-            products_list = product_imported.extract_products(category_table, 10)
+            products_list = product_imported.extract_products(category_table, 20)
             product_imported.inject_product_in_database(products_list, category_table)
 
             self.stdout.write("Produits OFF bien importées.")
