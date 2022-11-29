@@ -22,7 +22,22 @@ class TestProduct(TestCase):
         )
 
     def test_extract_products(self):
-
+        # products_list = [
+        #     {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
+        #      'name': "Chocolate Truffles with Baileys",
+        #      'nutriscore': 'c',
+        #      'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg',
+        #      'ingredients': '',
+        #      'url': 'https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys'
+        #      },
+        #     {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
+        #      'name': 'Mini blinis',
+        #      'nutriscore': 'd',
+        #      'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.400.jpg',
+        #      'ingredients': '',
+        #      'url': 'https://fr.openfoodfacts.org/produit/3353820012379/mini-blinis-l-apero-du-poissonnier'
+        #      }
+        # ]
         test_category_table = Category.objects.all()
         products_list = self.product_imp.extract_products(test_category_table, 1)
         expected_value = [
