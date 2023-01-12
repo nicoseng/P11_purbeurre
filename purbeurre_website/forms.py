@@ -29,7 +29,7 @@ class UpdateUserForm(forms.ModelForm):
         new_user_data = User.objects.create(
             username=new_username,
             email=new_email,
-            password=password  # Password no change
+            password=password  # password no change
         )
         actual_user_data.delete()
         if commit:
