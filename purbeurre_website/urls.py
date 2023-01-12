@@ -13,5 +13,7 @@ urlpatterns = [
     path('add_favourite/', views.add_favourite, name='add_favourite'),
     path('propose_substitute/', views.propose_substitute, name='propose_substitute'),
     path('delete_product/', views.delete_product, name='delete_product'),
-    path('admin/', admin.site.urls)
+    path('user_account/update_user', views.update_user, name='update_user'),
+    path('user_account/change_password', views.change_password, name='change_password'),
+    path('admin/', admin.site.urls),
 ]

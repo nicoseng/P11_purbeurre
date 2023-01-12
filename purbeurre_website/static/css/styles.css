@@ -11449,5 +11449,50 @@ header.masthead h1, header.masthead .h1 {
 
 @media screen and (max-width: 1280px)
 {
-    /* Rédigez vos propriétés CSS ici */
+  /* Rédigez vos propriétés CSS ici */
+
+}
+
+ul{
+    padding:0;
+    margin:0;
+}
+
+ul li {
+    list-style-type:none;
+    display:inline-block;
+    margin:10px;
+}
+
+ul li.active, ul li.secondary-active {
+color:yellow;
+
+}
+
+#envoyer
+{
+    height:40px;
+    width:100px;
+}
+
+.ratings{
+    display:none;
+}
+
+li:hover {
+color: yellow;
+}
+
+ul li:first-of-type{
+  display:;
+}
+
+.ratings:after {
+  font-family: FontAwesome;
+  content: "\f005\f005\f005\f006\f006";
+  padding-left: 10px;
+}
+
+#table {
+   font-size: 12px;
 }

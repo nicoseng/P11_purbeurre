@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 
-class TestAuthentication(LiveServerTestCase):
+class TestUpdateUser(LiveServerTestCase):
     def setUp(self):
         if os.environ.get("ENV") == 'production':
             pythonpath = '/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
@@ -23,7 +23,7 @@ class TestAuthentication(LiveServerTestCase):
         self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
 
-    def test_authentication(self):
+    def test_update_user(self):
         self.browser.get(self.live_server_url + '/create_account/')
         if os.environ.get("ENV") == 'development':
             time.sleep(3)
@@ -48,6 +48,32 @@ class TestAuthentication(LiveServerTestCase):
         email = self.browser.find_element(By.NAME, "email")
         password = self.browser.find_element(By.NAME, "password")
         email.send_keys("abc@gmail.com")
+        password.send_keys("molaires")
+        submit = self.browser.find_element(By.NAME, "submit")
+        submit.send_keys(Keys.RETURN)
+        if os.environ.get("ENV") == 'development':
+            time.sleep(3)
+
+        self.browser.get(self.live_server_url + '/user_account/update_user')
+        if os.environ.get("ENV") == 'development':
+            time.sleep(3)
+        new_username = self.browser.find_element(By.NAME, "new_username")
+        new_email = self.browser.find_element(By.NAME, "new_email")
+        submit = self.browser.find_element(By.NAME, "submit")
+
+        new_username.send_keys("xyz")
+        new_email.send_keys("xyz@gmail.com")
+        submit.send_keys(Keys.RETURN)
+        if os.environ.get("ENV") == 'development':
+            time.sleep(3)
+
+        self.browser.get(self.live_server_url + '/login_user/')
+        if os.environ.get("ENV") == 'development':
+            time.sleep(5)
+
+        email = self.browser.find_element(By.NAME, "email")
+        password = self.browser.find_element(By.NAME, "password")
+        email.send_keys("xyz@gmail.com")
         password.send_keys("molaires")
         submit = self.browser.find_element(By.NAME, "submit")
         submit.send_keys(Keys.RETURN)

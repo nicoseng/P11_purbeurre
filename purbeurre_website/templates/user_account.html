@@ -25,6 +25,8 @@
             <i class="bi-envelope fs-2 mb-3 text-muted"></i>
             <p>Votre mail :</p>
             <div>{{ user.email }}</div>
+            <a href="{% url 'update_user' %}" class="ml-2">Modifier son profil</a>
+            <br><a href="{% url 'change_password' %}" class="ml-2">Modifier son mot de passe</a>
         </div>
     </div>
 </section>

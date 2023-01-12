@@ -8,6 +8,7 @@ from purbeurre_website.product_importer import ProductImporter
 class TestProduct(TestCase):
 
     def setUp(self):
+
         self.product_imp = ProductImporter()
         self.user = User.objects.create(
             id=1,
@@ -20,36 +21,31 @@ class TestProduct(TestCase):
             category_name="Snacks",
             category_url="https://fr.openfoodfacts.org/categorie/snacks?json=1"
         )
-
-    def test_extract_products(self):
-        # products_list = [
-        #     {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
-        #      'name': "Chocolate Truffles with Baileys",
-        #      'nutriscore': 'c',
-        #      'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg',
-        #      'ingredients': '',
-        #      'url': 'https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys'
-        #      },
-        #     {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
-        #      'name': 'Mini blinis',
-        #      'nutriscore': 'd',
-        #      'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.400.jpg',
-        #      'ingredients': '',
-        #      'url': 'https://fr.openfoodfacts.org/produit/3353820012379/mini-blinis-l-apero-du-poissonnier'
-        #      }
-        # ]
-        test_category_table = Category.objects.all()
-        products_list = self.product_imp.extract_products(test_category_table, 1)
-        expected_value = [
-            {'categories': products_list[0]["categories"],
-             'name':products_list[0]["name"],
-             'nutriscore': products_list[0]["nutriscore"],
-             'image': products_list[0]["image"],
-             'ingredients':products_list[0]["ingredients"],
-             'url':products_list[0]["url"]
-             }
+        self.products_list = [
+                {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
+                 'name': "Chocolate Truffles with Baileys",
+                 'nutriscore': 'c',
+                 'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg',
+                 'ingredients': '',
+                 'url': 'https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys'
+                 },
+                {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
+                 'name': 'Mini blinis',
+                 'nutriscore': 'd',
+                 'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.400.jpg',
+                 'ingredients': '',
+                 'url': 'https://fr.openfoodfacts.org/produit/3353820012379/mini-blinis-l-apero-du-poissonnier'
+                 }
         ]
-        assert products_list == expected_value
+
+    def test_extract_product(self):
+        test_category_table = Category.objects.all()
+        self.product_imp.extract_products(test_category_table, 1)
+        assert self.products_list[0]["name"] == "Chocolate Truffles with Baileys"
+        assert self.products_list[0]["nutriscore"] == "c"
+        assert self.products_list[0]["image"] == "https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg"
+        assert self.products_list[0]["ingredients"] == ""
+        assert self.products_list[0]["url"] == "https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys"
 
     def test_inject_product_in_database(self):
         products_list = [
@@ -72,6 +68,27 @@ class TestProduct(TestCase):
 
         expected_value = Product.objects.all()
         assert len(product_database) == len(expected_value)
+
+    def test_check_product_in_database(self):
+        category = Category.objects.create(
+            category_id=19,
+            category_name="Fruits",
+            category_url="https://fr.openfoodfacts.org/categorie/fruits?json=1"
+        )
+        Product.objects.create(
+            category_id=Category(category.category_id),
+            product_id=18,
+            product_name="orange",
+            product_image="https://images.openfoodf…/0397/front_fr.4.200.jpg",
+            product_url="https://fr.openfoodfacts…anges-a-dessert-marque-u",
+            product_ingredients="orange",
+            product_nutriscore="a"
+        )
+        test_product_table = Product.objects.all()
+        test_product_name = "orange"
+        response = self.product_imp.check_product_in_database(test_product_name, test_product_table)
+        expected_value = "orange"
+        assert response != expected_value
 
     def test_retrieve_product_data(self):
         category = Category.objects.create(

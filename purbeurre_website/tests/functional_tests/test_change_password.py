@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 
-class TestAuthentication(LiveServerTestCase):
+class TestChangePassword(LiveServerTestCase):
     def setUp(self):
         if os.environ.get("ENV") == 'production':
             pythonpath = '/home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/chromedriver'
@@ -23,20 +23,16 @@ class TestAuthentication(LiveServerTestCase):
         self.browser = webdriver.Chrome(service=service, options=self.chromeoption)
         self.browser.maximize_window()
 
-    def test_authentication(self):
-        self.browser.get(self.live_server_url + '/create_account/')
+    def test_change_password(self):
+        self.browser.get(self.live_server_url + '/user_account/change_password')
         if os.environ.get("ENV") == 'development':
             time.sleep(3)
-        username = self.browser.find_element(By.NAME, "username")
-        email = self.browser.find_element(By.NAME, "email")
-        password1 = self.browser.find_element(By.NAME, "password1")
-        password2 = self.browser.find_element(By.NAME, "password2")
+        new_password1 = self.browser.find_element(By.NAME, "new_password1")
+        new_password2 = self.browser.find_element(By.NAME, "new_password2")
         submit = self.browser.find_element(By.NAME, "submit")
 
-        username.send_keys("jean")
-        email.send_keys("abc@gmail.com")
-        password1.send_keys("molaires")
-        password2.send_keys("molaires")
+        new_password1.send_keys("solaires")
+        new_password2.send_keys("solaires")
         submit.send_keys(Keys.RETURN)
         if os.environ.get("ENV") == 'development':
             time.sleep(3)

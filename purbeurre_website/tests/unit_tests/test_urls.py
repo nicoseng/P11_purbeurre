@@ -53,3 +53,8 @@ class TestUrls(TestCase):
         path = reverse('delete_product')
         assert path == '/delete_product/'
         assert resolve(path).view_name == "delete_product"
+
+    # def test_review_url(self):
+    #     path = reverse('review')
+    #     assert path == '/product_data/review'
+    #     assert resolve(path).view_name == "review"

@@ -7,8 +7,15 @@ $(document).ready(function(){
 
 		for (let field in form_fields){
 			form_fields[field].className += ' form-control'
-
     }
-
+    $('li').on('click',function(){
+        $('li').removeClass('active');
+        $('li').removeClass('secondary-active');
+        $(this).addClass('active');
+        $(this).addClass('secondary-active');
+        $(this).prevAll().addClass('secondary-active');
+    })
 });
+
+
 

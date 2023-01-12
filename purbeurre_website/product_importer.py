@@ -18,7 +18,6 @@ class ProductImporter:
 
     @staticmethod
     def extract_products(category_table, nb_product):
-
         products_list = []
         # We fetch the url of each category in category table
         for category in category_table:
@@ -75,7 +74,7 @@ class ProductImporter:
                 if word.capitalize() in product.product_name.split():
                     product_selected = Product.objects.filter(product_name__contains=word.capitalize())
                     products_list.append(product_selected)
-        return products_list[0]
+        return products_list
 
     @staticmethod
     def retrieve_product_data(products_list):

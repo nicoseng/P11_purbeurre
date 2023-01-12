@@ -35,10 +35,112 @@
                     <button type="button" class="btn btn-warning btn-lg">Voir la fiche d'OpenFoodFacts</button>
                 </a>
             </div>
+<!--                        <div class="col-sm text-center pt-5">-->
+<!--                <a class="justify-d-flex text-center" href="{% url 'review' %}" target="_blank">-->
+<!--                    <button type="button" class="btn btn-warning btn-lg">Donner un avis sur le produit</button>-->
+<!--                </a>-->
+<!--            </div>-->
+
+            <div class="row pt-5">
+
+                <div class="col-sm-12 text-center pt-3">
+                    <div class="table-responsive">
+                        <h6>Avis des consommateurs</h6>
+                        {% for message in messages %}
+                            <h6 class="pt-3 pb-3">{{message}}</h6>
+                        {% endfor%}
+                        <table class="table table-sm table-secondary" id="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="border-0">
+                                    <div class="p-2 px-3 text-uppercase">Utilisateur</div>
+                                </th>
+                                <th scope="col" class="border-0">
+                                    <div class="p-2 px-3 text-uppercase">Note sur 5</div>
+                                </th>
+                                <th scope="col" class="border-0 align-middle text-center ">
+                                    <div class="p-2 px-3 text-uppercase">Commentaire</div>
+                                </th>
+                                <th scope="col" class="border-0 align-middle text-center ">
+                                    <div class="py-2 text-uppercase">Date</div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for comment in comment_table %}
+                            <tr>
+                                <th scope="row">
+                                    <div class="p-2">
+                                        <p>{{comment.user_id}}</p><br>
+                                    </div>
+                                </th>
+                                <th scope="row">
+                                    <div class="p-2 text-center">
+                                        {{comment.rating}}
+                                    </div>
+                                </th>
+                                <th scope="row">
+                                    <div class="p-2 text-center">
+                                        {{comment.comment}}
+                                    </div>
+                                </th>
+                                <th scope="row">
+                                    <div class="p-2">
+                                        <p>{{comment.date}}</p><br>
+                                    </div>
+                                </th>
+                                {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <form action="{% url 'review' %}" method="POST">
+                        {% csrf_token %}
+                        <h6>Donnez une note à ce produit</h6>
+                        <ul>
+                            <li value="1">
+                                <label for="rating-1">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input type="radio" class="ratings" name="rating" id="rating-1" value="1">
+                            </li>
+                            <li value="2">
+                                <label for="rating-2">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input type="radio" class="ratings" name="rating" id="rating-2" value="2">
+                            </li>
+                            <li value="3">
+                                <label for="rating-3">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input type="radio" class="ratings" name="rating" id="rating-3" value="3">
+                            </li>
+                            <li value="4">
+                                <label for="rating-4">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input type="radio" class="ratings" name="rating" id="rating-4" value="4">
+                            </li>
+                            <li value="5">
+                                <label for="rating-5">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input type="radio" class="ratings" name="rating" id="rating-5" value="5">
+                            </li>
+                        </ul>
+                        <h6 class="pt-3">Écrire un commentaire</h6>
+                        <textarea rows="5" cols="50" name="comment" id="comment"></textarea>
+                        <div class="pt-2">
+                            <input type="submit" value="Envoyer" class="btn btn-warning" id="envoyer">
+                            <input type="hidden" name="product_selected_id" value="{{product_selected_data.product_id}}">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-
 {% endblock %}
 </body>
 
