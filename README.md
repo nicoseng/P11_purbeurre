@@ -1,6 +1,6 @@
-# Projet P10 : Déployez votre application sur un serveur comme un pro !
+# Projet P11 : Améliorez un projet déjà existant !
 
-Code source : https://github.com/nicoseng/P10_purbeurre
+Code source : https://github.com/nicoseng/P11_purbeurre
 Programme rédigé sous Python3. Projet sous Virtual Env et Git 
 Adresse de l’application web sur heroku : http://138.68.146.1/
 
