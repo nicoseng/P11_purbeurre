@@ -15,5 +15,6 @@ urlpatterns = [
     path('delete_product/', views.delete_product, name='delete_product'),
     path('user_account/update_user', views.update_user, name='update_user'),
     path('user_account/change_password', views.change_password, name='change_password'),
+    path('submit_mail', views.submit_mail, name='submit_mail'),
     path('admin/', admin.site.urls),
 ]

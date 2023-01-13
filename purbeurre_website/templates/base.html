@@ -65,6 +65,12 @@
                 <hr class="divider"/>
                 <p class="text-muted mb-5">Envie de nous écrire ? Envoyez-nous un message et nous vous répondrons le
                     plus vite possible !</p>
+                <h4>Message</h4>
+                <form method="POST" action="{% url 'submit_mail'%}">
+                    {% csrf_token %}
+                    <textarea cols="50" row="20" name="message" placeholder="Message..."></textarea>
+                    <input type="submit" value="envoyer">
+                </form>
             </div>
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -79,7 +85,7 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
                     <i class="bi-envelope fs-2 mb-3 text-muted"></i>
-                    <div>pur_beurre@mail.com</div>
+                    <div>sengmanynicolas21@gmail.com</div>
                 </div>
             </div>
         </div>

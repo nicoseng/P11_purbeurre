@@ -5,6 +5,9 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.contrib.messages import get_messages
+from django.core.mail import send_mail
+from django.conf import settings
+from django.core import mail
 
 from purbeurre_website.forms import CreateUser, ChangePasswordForm, UpdateUserForm
 from purbeurre_website.models import Favourite, Product, Category
@@ -167,3 +170,26 @@ class TestViews(TestCase):
         }
         rec = self.client.post('/user_account/update_user', new_user_data, follow=True)
         assert rec.status_code == 200
+
+    def test_submit_mail_view(self):
+        self.client.login(username="Louis", password="lunaires")
+        path = reverse('submit_mail')
+        message = {
+            "message": "test"
+        }
+        response = self.client.post(path, message)
+        assert response.status_code == 200
+
+        mail.send_mail(
+            'Message',
+            'test',
+            'ccf1860bcba7f3',
+            ['sengmanynicolas21@gmail.com']
+        )
+
+        # Now you can test delivery and email contents
+        assert len(mail.outbox) == 2, "Inbox is not empty"
+        assert mail.outbox[0].subject == 'Message'
+        assert mail.outbox[0].body == 'test'
+        assert mail.outbox[0].from_email == 'ccf1860bcba7f3'
+        assert mail.outbox[0].to == ['sengmanynicolas21@gmail.com']

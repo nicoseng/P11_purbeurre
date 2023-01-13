@@ -26,6 +26,11 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ.get("ENV", "development") == "production" else True
 
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'ccf1860bcba7f3'
+EMAIL_HOST_PASSWORD = '9b7df148695571'
+EMAIL_PORT = 2525
+
 ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com", "localhost", "138.68.146.1"]
 
 # Application definition

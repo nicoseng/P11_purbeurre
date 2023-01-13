@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
-
+from django.core.mail import send_mail
+from django.conf import settings
 
 from .models import Category, Product
 from .product_importer import ProductImporter
@@ -189,3 +190,20 @@ def product_data(request):
                    'comment_table': comment_table
                    }
         return render(request, 'product_data.html', context)
+
+
+@login_required(login_url='login_user')
+def submit_mail(request):
+    current_user = request.user
+    if request.method == "POST":
+        message = request.POST["message"]
+        send_mail(
+            'Message',
+            message,
+            current_user.email,
+            ['sengmanynicolas21@gmail.com'],
+            fail_silently=False,
+        )
+        messages.success(request, "Message bien envoyé ! ")
+
+    return render(request, 'home.html')

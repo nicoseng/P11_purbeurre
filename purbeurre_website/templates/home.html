@@ -18,7 +18,7 @@
                 <p class="text-white-75">Trouvez un produit de substitution pour ceux que vous consommez tous les
                     jours.</p>
             </div>
-            <h3 class="text-white">{{ none_message }}</h3>
+            <div><h3 class="text-white">{{ none_message }}</h3>
             <form method="POST" action="{% url 'propose_substitute' %}">
                 {% csrf_token %}
                 <div class="input-group" id="recherche">
@@ -28,6 +28,7 @@
                     <input class="btn btn-light" type="submit" name="Chercher" value="Chercher">
                 </div>
             </form>
+                </div>
         </div>
     </div>
 </header>
