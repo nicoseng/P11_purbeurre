@@ -22,7 +22,7 @@ class TestViews(TestCase):
         self.client = Client()
         self.user = User.objects.create_user(
             username="Louis",
-            email="louis@gmail.com",
+            email="ccf1860bcba7f3",
             password="lunaires"
         )
 
